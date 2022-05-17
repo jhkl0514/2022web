@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{margin: 0;padding: 0;}
+
+    div.boxWrap{
+        width: 500px;
+        margin: 0 auto;
+        background-color: aqua;
+    }
+
+    div.boxWrap>div{width: 200px; height: 200px;}
+
+    div.boxWrap>div.box1{
+        width: 200px;
+        background-color: #f0f;
+        float: left;
+    }
+
+    div.boxWrap>div.box2{
+        width: 200px;
+        background-color: blue;
+        float: right;
+    }
+
+
+    div.view:after{content: "홍길동";}
+    /* div.view:before{content: "내 이름은";} */
+
+    .boxWrap:after{
+        content: ""; display:block; clear:both
+    }
+
+</style>
+
+</head>
+<body>
+    <div class="boxWrap">
+
+        <div class="box1">dafadf</div>
+        <div class="box2">adfadf</div>
+
+    </div>
+    
+    <div class="view">
+        안녕
+    </div>
+</body>
+</html>

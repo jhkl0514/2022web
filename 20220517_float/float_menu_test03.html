@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+*{margin: 0;padding: 0;}
+li{list-style: none;}
+.clearfix:after{content: ""; display: block; clear: both;}
+
+.headerWrap{width: 1000px; margin: 0 auto;}
+.headerWrap>h1{width: 100%; line-height: 100px; text-align: center;}
+.headerWrap>nav.navbar{w100%; background-color: pink;}
+.headerWrap>nav.navbar>ul>li{float: left; width: 20%; line-height: 100px; text-align: center;}
+
+.visual{width: 100%;background-color: #777; height: 150px;}
+
+.section{width: 1000px; background-color: aqua; margin: 0 auto;}
+.section>.contents{float: left; width: 600px; background-color: pink;}
+.section>aside{float: right; width: 350px; background-color: gray;}
+
+</style>
+
+</head>
+<body>
+    <div class="headerWrap clearfix">
+        <h1>LOGO</h1>
+        <nav class="navbar">
+            <ul class="clearfix">
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+                <li>menu4</li>
+                <li>menu5</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="visual">visual</div>
+    <section class="section clearfix">
+        <div class="contents">contents</div>
+        <aside class="aside">aside</aside>
+    </section>
+    <footer class="footer">
+        <address>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, eos?</address>
+    </footer>
+</body>
+</html>

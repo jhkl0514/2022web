@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+
+        div.boxWrap{
+            margin: 0 auto;
+            width: 500px;
+            /* height: 300px; */
+            background-color:skyblue;}
+        
+        div.boxWrap>div{width: 200px;height: 200px;}
+        div.boxWrap>div.box1{
+            background-color: #f00;
+            float:left
+        }
+        div.boxWrap>div.box2{
+            background-color: #f0f;
+            float:right
+        }
+        div.boxWrap>div.clear{clear: both;}
+        
+        /* float 해제 
+        1.float item 부모의 마지막 child에 적용(:after)
+        2.block단위 태그
+        3.clear:both
+        */
+
+        div.view:after{content:"홍길동"}
+        /* div.view:before{content:"본사이트"} */
+
+        .boxWrap:after{content:"";display:block;clear:both}
+    </style>
+</head>
+<body>
+   <div class="boxWrap">
+       
+       <div class="box1"></div>
+       <div class="box2"></div>
+      
+   </div>
+   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vel.
+
+   <div class="view">
+       안녕
+   </div>
+</body>
+</html>
