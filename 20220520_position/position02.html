@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        li{list-style: none;}
+        .clearfix:after{content:""; display: block; clear: both;}
+
+        .hearderWrap{
+           
+        }
+        .hearder{
+            width: 1000px; margin: 0 auto; position:relative;
+            background-color: antiquewhite; padding: 20px;
+        }
+        .logo{
+            width: 200px; height: 160px; background-color: black;
+            color: white; text-align: center; line-height: 100px;
+            padding: 20px;
+
+        }
+        .hearderWrap .menu01{
+            background-color: blue;
+            width: 200px; height: 30px;
+           position: absolute;right:20px; top: 20px;
+        }
+
+        .hearderWrap .menu02Wrap{
+            background-color:aquamarine;
+            width: 600px; height: 50px;
+            position: absolute;right:20px; bottom: 20px;
+        }
+        .hearderWrap .menu02Wrap .memu02{
+            
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="hearderWrap">
+        <div class="hearder">
+            <div class="logo">logo</div>
+            <div class="menu01">menu01</div>
+            <div class="menu02Wrap">
+                <div class="memu02">
+                    <ul class="clearfix">
+                        <li>메뉴테스트1</li>
+                        <li>메뉴테스트2</li>
+                        <li>메뉴테스트3</li>
+                        <li>메뉴테스트4</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
