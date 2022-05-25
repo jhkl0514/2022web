@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+/* header */
+.headerTopWrap{border-bottom: 1px solid #dcdcdc; margin-bottom: 16px;}
+.headerTop{width: 980px;margin: 0 auto;}
+.topMenu ul{float: right;}
+.topMenu li{float: left; position: relative;}
+.topMenu li:after{
+    content:""; display: block; width: 1px; height: 11px;background: #dcdcdc;
+    position: absolute; top: 7px; right: 0;
+}
+.topMenu li:last-child:after{display: none;}
+.topMenu li a{display: block; padding: 7px 10px; font-size: 12px; line-height: 12px;}
+
+
+/* navmenu */
+.navWrap{background-color: #1D5DA4;}
+.navWrap .nav{width: 980px;margin: 0 auto;}
+
+.navWrap .nav ul li{
+    float: left;
+    width: calc( 980px / 6 );
+    border-left: 1px solid #336DAC;
+}
+.navWrap .nav ul li:last-child{
+    border-right: 1px solid #336DAC;
+}
+.navWrap .nav ul li a{
+    display: block;
+    color: #fff;   
+    height: 45px;
+    display: flex; justify-content:center; align-items: center;   
+}   
+    /* 가운데 정렬하는 방법 : 글자가 자식한테 센터를 주는 거다.
+    text-align: center; line-height: 45px; */
+
+.navWrap .nav ul li a:hover{background-color: blue;}
+
+
+.utilWrap{border-bottom: 1px solid #000; margin-bottom: 20px;}
+.utilWrap .util{width: 980px; margin: 0 auto;}
+.utilWrap .utilMenu{background-color: skyblue;
+    float: right;
+    /* width: 269px; margin-right: auto; */
+}
+.utilWrap .utilMenu ul{}
+.utilWrap .utilMenu ul li{float: left; position: relative;}
+.utilWrap .utilMenu ul li:after{
+    content: ""; display: block; width: 1px; height: 12px;
+    background-color: #dcdcdc; position: absolute; right: 0; top:7px
+}
+.utilWrap .utilMenu ul li:last-child:after{display: none;}
+.utilWrap .utilMenu ul li a{display: block; line-height: 12px; font-size: 12px; padding: 7px 15px;}
+
+
+
+.aWrap{}
+.aWrap .atop{margin: 0 auto; width: 980px; background-color: green;}
+.aWrap .atop .aMenu{float: right;}
+.aWrap .atop .aMenu ul{}
+.aWrap .atop .aMenu ul li{float: left; position: relative;}
+.aWrap .atop .aMenu ul li:after{
+    content: ""; display: block; width: 1px; height: 12px;
+    background-color: #dcdcdc; position: absolute; right: 0; top: 7px;
+}
+.aWrap .atop .aMenu ul li a{
+    display: block; line-height: 12px; font-size: 12px; padding: 7px 15px;
+}
+
+
+
+
+
+
+
+
+
+
+/* .boxWrap{width: 500px;height: 500px;background-color: pink; position: relative;}
+.box{ */
+    /* width: 100px;height: 100px;background-color: #f00;
+    position: absolute; */
+    /* left:50%; top: 50%;
+    margin-left: -50px; margin-top: -50px; */
+    /* left:calc( 50% - 50px );
+    top:calc( 50% - 50px ); */
+/* } */
+
+
+.boxWrap{
+    width: 500px;height: 500px;background-color: pink;
+    display: flex;justify-content;align-items:center;
+}
+.box{
+    width: 100px;height: 100px;background-color: #f00;
+}
