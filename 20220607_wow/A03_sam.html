@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{height: 100%;}
+        /* body만해서는 안되고 html에도 높이 100% 해야한다. */
+        body{
+            display: flex; justify-content: center; align-items: center;
+            /* height:100vh : 100개를 쪼개서 바디에 height100% 안됨. */
+        }
+        .boxWrap{
+            width: 400px; height: 300px; background-color: pink;
+            display: flex; justify-content: center;
+            /* flex-direction:column; */
+            align-items: center;
+            
+        }
+        .boxWrap div{
+            width: 100px;height: 100px;
+            position: absolute;
+            transition:0.3s;
+        }
+        .boxWrap div:nth-child(1){background: red; }
+        .boxWrap div:nth-child(2){background: blue;}
+        .boxWrap div:nth-child(3){background: green; transition-delay:0.3s;}
+
+        .boxWrap:hover div:nth-child(1){transform: translate(-100px, 50px);}
+        .boxWrap:hover div:nth-child(3){transform: translate(100px, -50px);}
+
+    </style>
+</head>
+<body>
+    <div class="boxWrap">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    
+</body>
+</html>
