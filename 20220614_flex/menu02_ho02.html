@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .navWrap{background-color: #eee;}
+        .navbar{width: 1000px;margin: 0 auto; position: relative;}
+        .navbar:hover:after{
+            content: ""; display: block; width: 100%; height: 40px; background-color: pink;
+            position: absolute; z-index: 1;
+        }
+        .navbar:after{display: none;}
+        
+        .navbar>ul{position: relative;}
+        .navbar>ul>li{
+            float: left; width: calc( 100% / 5 ); height: 40px;
+            /* position: relative; li 크기만큼 잡히기 때문에 UL에 넣는다.*/
+        }
+        .navbar>ul>li:hover{background-color: #ddd;}
+        .navbar>ul>li>a{
+            display:flex; height: 100%; justify-content: center; align-items: center;}        
+        .navbar>ul>li:hover .submenu{display: block;}
+        
+        .submenu{display:none; position: absolute; height: 40px; z-index: 2;}
+        .submenu li{float: left; background-color: pink;}
+        .submenu li a{display: block; padding: 5px 10px;}
+
+        .navbar>ul>li:nth-child(1) .submenu{margin-left: 0;}
+        .navbar>ul>li:nth-child(2) .submenu{margin-left: -40px;}
+        .navbar>ul>li:nth-child(3) .submenu{margin-left: -35px;}
+        .navbar>ul>li:nth-child(4) .submenu{margin-left: -40px;}
+        .navbar>ul>li:nth-child(5) .submenu{right: 0;}
+
+        .visual{height: 500px; background-color: skyblue;}
+
+    </style>
+</head>
+
+<body>
+    <div class="navWrap">
+        <nav class="navbar">
+            <ul class="clearfix">
+                <li><a href="#">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s01_01</a></li>
+                            <li><a href="#">s01_02</a></li>
+                            <li><a href="#">s01_03</a></li>
+                            <li><a href="#">s01_04</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu2</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s02_01</a></li>
+                            <li><a href="#">s02_02</a></li>
+                            <li><a href="#">s02_03</a></li>
+                            <li><a href="#">s02_04</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu3</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s03_01</a></li>
+                            <li><a href="#">s03_02</a></li>
+                            <li><a href="#">s03_03</a></li>
+                            <li><a href="#">s03_04</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu4</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s04_01</a></li>
+                            <li><a href="#">s04_02</a></li>
+                            <li><a href="#">s04_03</a></li>
+                            <li><a href="#">s04_04</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">menu5</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="#">s05_01</a></li>
+                            <li><a href="#">s05_02</a></li>
+                            <li><a href="#">s05_03</a></li>
+                            <li><a href="#">s05_04</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="visual"></div>
+    
+</body>
+</html>
