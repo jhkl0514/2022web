@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        html,body{height: 100%;}
+        body{display: flex; justify-content: center; align-items: center;}
+        .boxWrap{
+            width: 500px; height: 500px;
+            border:1px solid #000;
+            position: relative;
+        }
+        .bar1{
+            width: 0px; height: 20px; background:#f00;
+            animation-name: bar1;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;;
+        }      
+        @keyframes bar1{
+            /* from{width: 0;} */
+            to{width: 100%;}
+        }
+        .bar2{
+            width: 20px; height: 0; background:blue;
+            position: absolute; right: 0; top: 0;
+            animation-name: bar2;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            animation-delay: 1s;
+        
+        }
+        @keyframes bar2{
+            to{height: 100%;}
+        }
+
+        .bar3{
+            width: 20px; height: 20px; background:#f00;
+            position: absolute; right: 0; bottom: 0;
+            animation-name: bar3;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+        }
+        @keyframes bar3{
+            from{}
+            to{width:100%;}
+        }
+        .bar4{
+            width: 20px; height: 20px; background: blue;
+            position: absolute; left: 0; bottom: 0;
+            animation-name: bar4;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            animation-delay: 3s;
+        }
+        @keyframes bar4{
+            from{}
+            to{height:100%;}
+        }
+
+
+       
+
+    </style>
+</head>
+<body>
+    <div class="boxWrap">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+    </div>
+    
+</body>
+</html>
