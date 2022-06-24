@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script></script>
+    <style>
+        #box{border: 1px solid #f00;}
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        ul.box{display: flex;}
+    </style>
+    <script></script>
+</head>
+<body>
+    <script>
+        var 작명 = "클릭금지"
+    </script>
+    <div id="box" onclick="alert(작명)">0</div>
+
+
+    당신의 점수는 <span class="count">F</span> 입니다.<br><br><br>
+    <script>
+        var a = 10;
+        var b = 20;
+
+        if(a==b){
+            //true
+            console.log('같아요')
+        }else{
+            //false
+            console.log("달라요")
+        }
+
+        (a==b)? console.log('같아') : console.log("달라");
+
+        var st = "안녕하세요.<br>";
+        st+= "만나서 반갑습니다.<br>";
+        st+= "무엇을 도와드릴까요?<br>"
+        st+= "예 알겠습니다."
+        console.log(st);
+        document.write(st)
+
+        var name = "한성용";
+        var name1 = "사과";
+
+        var menu = "<ul>";
+        menu = menu + "<li>"+ name + "</li>"
+        menu = menu + "<li>"+ name1 + "</li>"
+        menu += "</ul>"
+
+        var array = ["img1.jpg","img2.jpg","img3.jpg"];
+        var atext = ["앵무새","꽃","오리"]
+
+
+        var fruit = "<ul class='box'>"
+            
+            for(var i=0;i<array.length;i++){
+                // fruit+= "<li>"+array[i]+"</li>";
+
+            //    fruit += "<li>" + atext[i] + "<img src='../../images/" + array[i] + "'></li>"
+            fruit += `<li>${atext[i]}<img src="../../images/${array[i]}"></li>`;
+
+            }
+
+            fruit+= "</ul>"
+
+        var eng = 91; 
+        var hak = ""
+
+        if( eng > 90 ){
+            // document.write('당신의 점수는 a 학점입니다.')
+            hak ="A";
+        }
+
+        // document.write("당신의 점수는 " + hak + "입니다")
+        document.getElementsByClassName("count")[0].innerHTML = hak;
+        document.getElementsByClassName("count")[0].style.border = "1px solid #f00";
+
+        $(".count").html(hak)
+
+    </script>
+    
+</body>
+</html>
