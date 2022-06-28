@@ -1,0 +1,78 @@
+@charset "utf-8"
+
+/* 폰트 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  html > body {
+    font-family:"GmarketSansMedium";
+    text-underline-position: under;
+  }
+  
+  /* lib */
+  .con {
+    width:var(--site-width);
+  }
+  
+  .con-min-width {
+    min-width:var(--site-width);
+  }
+  
+  /* custom */
+  body {
+    background-color:#afafaf;
+  }
+  
+  :root {
+    --site-width:1080px;
+  }
+  
+  .top-bar {
+    height:80px;
+    border-bottom:1px solid #454545;
+    background-color:white;
+  }
+  
+  .menu-1 ul > li > a:hover {
+    text-decoration:underline;
+  }
+  
+  .menu-1 > ul > li > a {
+    height:100%;
+    display:flex;
+    align-items:center;
+    padding:0 30px;
+  }
+  
+  .menu-1 > ul > li > div {
+    position:absolute;
+    display:none;
+    left:0;
+    width:100%;
+    transform:translateY(1px);
+    background-color:white;
+    padding-top: 30px;
+    padding-bottom:50px;
+  }
+  
+  .menu-1 > ul > li:hover > div {
+    display:block;
+  }
+  
+  .menu-1 > ul > li > div > div ul > li > a {
+    display:block;
+    text-align:center;
+  }
+  
+  .menu-1 > ul > li > div > div > ul > li > a {
+    padding:20px 0;
+    background-color: red;
+  }
+  
+  .menu-1 > ul > li > div > div > ul > li > ul > li > a {
+    padding:10px 0;
+  }
