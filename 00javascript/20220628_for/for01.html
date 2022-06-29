@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{background-color: pink;}
+        div{background: skyblue;}
+        .box{background: red;}
+    </style>
+</head>
+<body>
+    <div id="box" class="box">1</div>
+    <div>2</div>
+    <div class="box">3</div>
+    <script>
+        // 1. 3단for문 작성하여 document출력
+        // 2. 3단for문 작성, 변수에 누적저장하여 console.log출력
+        // 3. 3단for문 작성, 변수에 누적저장하여 각 테그, 아이디, 클레스에 출력
+
+        
+            let gugudan =''; // let 전역변수로 for문 밖에 사용 (var은 지역변수로  추후에는 쓰지 않으므로, let 사용)
+            for(var i=2; i<10; i++){
+                // document.write("3 x " + i + " = " + 3*i + "<br>");
+                // document.write(`3 x ${i} = ${ 3*i }<br>`);
+                // gugudan = gugudan + `3 x ${i} = ${ 3*i }<br>`;
+                gugudan += `3 x ${i} = ${ 3*i }<br>`;
+                // =을 안쓰고 문자에 누적을 하기 위해 +=로사용
+            }
+            // document.write(gugudan)
+            console.log(gugudan);
+            // document.getElementById("box").innerHTML = gugudan;
+            // document.getElementsByClassName("box")[1].innerHTML = gugudan;
+            document.getElementsByTagName("div")[1].innerHTML = gugudan;
+        </script>
+    
+</body>
+</html>

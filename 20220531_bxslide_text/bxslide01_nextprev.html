@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/jquery.bxslider.css">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery.bxslider.js"></script>
+
+    <style>
+        body{background-color: #eee;}
+        .container{width: 1280px; margin: 0 auto; position: relative;}
+        /* .container{width: 1000px;margin: 0 auto; position: relative;} */
+        .visual{ position: relative;}
+        .visual .txtWrap{
+            position: absolute; width: 1280px; height: 50%;
+            left:50%; margin-left: -640px; color: #fff;
+        }
+        .visual .txtWrap .txt{position: absolute; top: 50%;}
+        .visual .txtWrap h3{font-size: 80px;}
+        .visual .txtWrap p{font-size: 24px; margin-bottom: 15px;}
+        .visual .txtWrap a{color:#fff; display: inline-block; background-color: #333;
+            padding: 10px 20px; border-radius: 30px;
+        }
+
+        .next,.prev{position: absolute; top:50%; margin-top: -50px; cursor: pointer;}
+        .next{right: 0;}
+
+        .visual li>img{width: 100%;}
+
+        .box{width: 500px; margin: 0 auto;}
+        .box .slide2 > li > img{width: 100%;}
+
+        .bx-wrapper {
+            -moz-box-shadow: 0 0 0 #ccc;
+            -webkit-box-shadow: 0 0 0 #ccc;
+            /* 다른 브라우저에 보이게 하기 위해서 */
+            box-shadow: 0 0 0 #ccc;
+            border: 0 #fff;           
+        }
+
+        .bx-wrapper .bx-pager {
+            position: absolute;  bottom: 30px;   width: 100%;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a:hover,
+        .bx-wrapper .bx-pager.bx-default-pager a.active,
+        .bx-wrapper .bx-pager.bx-default-pager a:focus {
+             background: red;
+        }
+
+        .box .bx-wrapper .bx-pager.bx-default-pager a:hover,
+        .box .bx-wrapper .bx-pager.bx-default-pager a.active,
+        .box .bx-wrapper .bx-pager.bx-default-pager a:focus {
+             background: blue;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            var slide = $(".slide1").bxSlider({
+                // auto:true,
+                // mode:'vertical',
+                controls:false
+            });
+
+            $(".next").click(function(){
+                slide.goToNextSlide();
+            });
+            $(".prev").click(function(){
+                slide.goToPrevSlide();
+            });
+
+
+
+            $(".slide2").bxSlider();
+        })
+    </script>
+</head>
+<body>
+    <div class="visual">
+        <ul class="slide1">
+            <li>
+                <div class="txtWrap"><!-- 1280px poa -->
+                    <div class="txt">
+                        <h3>견학프로그램1</h3>
+                        <p>나의 게임 산업</p>
+                        <a href="#">자세히 더 보기</a>
+                    </div>
+                </div>
+                <img src="../images/pc01.jpg" alt="">
+            </li>
+            <li>
+                <div class="txtWrap"><!-- 1280px poa -->
+                    <div class="txt">
+                        <h3>견학프로그램2</h3>
+                        <p>나의 게임 산업</p>
+                        <a href="#">자세히 더 보기</a>
+                    </div>
+                </div>
+                <img src="../images/pc02.jpg" alt="">
+            </li>
+            <li>
+                <div class="txtWrap"><!-- 1280px poa -->
+                    <div class="txt">
+                        <h3>견학프로그램3</h3>
+                        <p>나의 게임 산업</p>
+                        <a href="#">자세히 더 보기</a>
+                    </div>
+                </div>
+                <img src="../images/pc03.jpg" alt="">
+            </li>
+        </ul>
+        <div class="next">
+            <img src="../images/next.png" alt="">
+        </div>
+        <div class="prev">
+            <img src="../images/prev.png" alt="">
+        </div>
+    </div>
+
+    <div class="box">
+        <ul class="slide2">
+            <li>
+                <img src="../images/pc01.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/pc02.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/pc03.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>
