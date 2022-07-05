@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+</head>
+<style>
+    .toggle{
+        width: 60px; height: 60px;
+        border: 1px solid #000;
+        display: flex; justify-content: center; align-items: center;
+        position: relative;
+    }
+
+    .toggle div{
+        width: 40px; height: 5px; background: #000;
+        border-radius: 3px;
+        position: absolute;
+        transition: .3s;
+        }
+
+    .toggle .bar1{transform: translateY(-15px);}
+    .toggle .bar3{transform: translateY(15px);}
+
+    .toggle.active .bar1{transform: translateY(0) rotate(315deg);}
+    .toggle.active .bar2{opacity: 0;}
+    .toggle.active .bar3{transform: translateY(0) rotate(-315deg);}
+
+    #box{width: 200px; height: 200px; background: red; transition: .3s;}
+    #box.active{width: 200px; height: 200px; background: pink; transform: translateX(-200px);}
+        
+</style>
+<body>
+    <div class="toggle">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <div id="box"></div>
+
+    <script>
+        
+        document.querySelector('.toggle').addEventListener("click", function(){
+            console.log('click');
+        document.querySelector('.toggle').classList.toggle("active");
+        document.querySelector('#box').classList.toggle("active");
+        })
+
+
+        // function toggle(){
+        //     document.querySelector('.toggle').classList.toggle("active");
+        //     document.querySelector('#box').classList.toggle("active");
+        // }
+        //
+        // document.querySelector('.toggle').addEventListener("click", function(){
+        //     console.log('click');
+        //     toggle();
+        // })
+
+        let on = true;    
+        $(".toggle").on("click",function(){
+           
+           if( on == true ){         
+                $(".toggle").addClass("active")
+                $("#box").addClass("active")
+                on = false;
+            }else{
+                $(".toggle").removeClass("active")
+                $("#box").removeClass("active")
+                on = true;
+            }
+           
+        })
+
+    </script>
+    
+</body>
+</html>
