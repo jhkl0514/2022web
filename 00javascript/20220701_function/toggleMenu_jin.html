@@ -37,16 +37,15 @@
     .toggle.active .bar1{transform: translateY(0) rotate(315deg);}
     .toggle.active .bar2{opacity: 0;}
     .toggle.active .bar3{transform: translateY(0) rotate(-315deg);}
+    .toggle.active div{background: pink;}
 
     #box.active{transform: translateX(-100%);}   
-
-    
+  
 
 
 </style>
 <body>
-    <div id="box">
-        
+    <div id="box">        
     </div>
     <div class="toggle">
         <div class="bar1"></div>
@@ -60,6 +59,9 @@
             document.querySelector('#box').classList.toggle("active");
 
         })
+
+        const toggleElem = document.querySelector(".toggle");
+        const boxElem = document.querySelectector("#box");
     </script>
 </body>
 </html>
