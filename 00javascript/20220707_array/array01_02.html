@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    
+        <input type="text" class="inp">
+        <button class="btn">insert</button>
+
+        <ul class="view">
+
+        </ul>
+        <button class="allDel">삭제</button>
+    <script>
+        const arr = [];
+
+        const inpElem = document.querySelector(".inp");
+        const btnElem = document.querySelector(".btn");
+        const viewElem = document.querySelector(".view");
+        const delElem = document.querySelector(".allDel");
+
+        btnElem.addEventListener("click",function(){
+           
+            console.log("viewData = " + inpElem.value);
+            arr.push(inpElem.value)
+            console.log(arr)
+             let text = `<li>${inpElem.value}</li>`;
+            //  데이터 하나만 들어감
+            viewElem.innerHTML = text
+
+            const node = document.createElement("li")
+            const textNode = document.createTextNode(inpElem.value)
+            node.appendChild(textNode)
+
+            viewElem.appendChild(node)
+
+        inpElem.value = "";
+        delElem.addEventListener("click",function(){
+            viewElem.innerHTML = ""
+        })
+
+        })
+
+
+        // jquery 
+
+        // $(".btn").click(function(){
+        //     console.log( $(".inp").val() )
+        //     arr.push($(".inp").val())
+        //     console.log(arr)
+
+        //     let text = `<li>${$(".inp").val()}</li>`;
+
+        //     $(".view").append(text)
+        //     $(".inp").val("")
+
+        // })
+        // $(".allDel").click(function(){
+        //     $(".view").html("")
+        // })
+
+
+    </script>
+</body>
+</html>
+
+
+</body>
+</html>
