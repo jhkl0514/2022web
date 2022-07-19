@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery02_tab01_jin</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    .wrap{width: 70%; background-color: #ddd; padding: 20px;}
+    .menu{display: flex; }
+    .menu li{background-color: aqua; display: flex;  width: 150px; height: 50px; border: 1px solid #000; justify-content: center; align-items: center; cursor: pointer;}
+    .menu>li.active{background-color: #000; color: #fff;}
+    .content{padding: 20px; border: 1px solid #000; background-color: #fff; height: 300px; display: flex; align-items: center; justify-content: center;}
+    .content div{display: none;}
+    .content div:first-child{display: block;}
+</style>
+<body>
+<div class="wrap">
+    <ul class="menu">
+        <li class="active">Tab 01</li>
+        <li>Tab 02</li>
+        <li>Tab 03</li>
+    </ul>
+    <div class="content">
+        <div>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias veniam in omnis doloremque eligendi nam amet consequatur atque reiciendis praesentium?</div>
+        <div>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias veniam in omnis doloremque eligendi nam amet consequatur atque reiciendis praesentium?</div>
+        <div>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias veniam in omnis doloremque eligendi nam amet consequatur atque reiciendis praesentium?</div>
+    </div>
+</div>
+
+<script>
+    $(".menu>li").click(function(){
+        $(".menu>li").removeClass("active")
+        $(this).addClass("active")
+
+        
+        let i = $(this).index()
+        $(".content div").hide()
+        $(".content div").eq(i).fadeIn()
+    })
+</script>
+
+
+</body>
+</html>
