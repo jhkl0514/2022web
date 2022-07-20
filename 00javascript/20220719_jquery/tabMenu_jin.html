@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabMenu_jin</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    .wrap{ padding: 30px;}
+    .menu {display: flex;}
+    .menu li{        
+        width: 100px; height: 50px; background-color:pink; display: flex; justify-content: center; align-items: center; font-weight: bold;
+    }
+    .menu>li.active{background-color:beige}
+    .content{width: 500px; height: 200px; background-color: beige; padding: 30px;}
+    .content li{display: none;}
+    .content li:first-child{display: block;}
+
+</style>
+<body>
+    <div class="wrap">
+        <ul class="menu">
+            <li class="active"><a href="#">Tap1</a></li>
+            <li><a href="#">Tap2</a></li>
+            <li><a href="#">Tap3</a></li>
+        </ul>
+        <div class="content">
+            <ul>
+                <li>01. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cupiditate?</li>
+                <li>02. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cupiditate?</li>
+                <li>03. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cupiditate?</li>
+            </ul>
+        </div>
+    </div>    
+<script>
+    $(".menu>li").click(function(){
+
+        let i=$(this).index();
+
+        $(".menu>li").removeClass("active")
+        $(this).addClass("active")
+
+        $(".content li").hide()
+        $(".content li").eq(i).show()
+    })
+</script>
+</body>
+</html>

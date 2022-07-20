@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acco01</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        html,body{height: 100%;}
+        body{display: flex; justify-content: center;_align-items: center; padding: 50px;}
+        .submenu{display: none;}
+        .menuWrap{width: 200px;}
+        .menu>li{border: 1px solid #ccc; margin-top: -1px; font-weight: bold;}
+        .menu>li>a{
+            display: flex;height: 40px;
+            align-items: center; justify-content: space-between;
+            padding: 0 16px; background: #eee;
+        }
+        .menu>li>a i{transition: .3s;}
+        /* .menu>li:first-child .submenu{
+            display: block;    
+        } */
+        /* .menu>li:hover .submenu{
+            display: block;    
+        }
+        .menu>li:hover i{transform: rotate(180deg);} */
+
+        .menu>li.hover .submenu{
+            display: block;    
+        }
+        .menu>li>a.active i{transform: rotate(180deg);}
+
+        .menu>li .submenu{        
+            padding: 10px 20px;      
+        }
+
+        .menu>li .submenu a{
+            display: block;
+            line-height: 30px;  font-weight: 400; font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="menuWrap">
+        <ul class="menu">
+            <li><a href="http://www.naver.com">menu01 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">sub01_01</a></li>
+                    <li><a href="#">sub01_02</a></li>
+                    <li><a href="#">sub01_03</a></li>
+                    <li><a href="#">sub01_04</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu02 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">sub02_01</a></li>
+                    <li><a href="#">sub02_02</a></li>
+                    <li><a href="#">sub02_03</a></li>
+                    <li><a href="#">sub02_04</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu03 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">sub03_01</a></li>
+                    <li><a href="#">sub03_02</a></li>
+                    <li><a href="#">sub03_03</a></li>
+                    <li><a href="#">sub03_04</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+         //hover
+        // $(".menu li").hover(function(){           
+        //     $(this).addClass("hover");            
+        // },function(){
+        //     $(this).removeClass("hover")
+
+        // })
+
+        $(".menu>li>a").click(function(e){
+            e.preventDefault(); //a링크의 값 안 먹게 한다.
+
+            $(".menu>li>a").parent().find(".submenu").slideUp();//.hide() //#3 .slideUP() , fadeOut()
+
+            if( $(this).hasClass("active")){
+                $(".menu>li>a").removeClass("active")
+            }else{
+                $(this).parent().find(".submenu").slideDown();// .show();//추가.slideDown(), fadeIn()
+                $(".menu>li>a").removeClass("active") //#1
+                $(this).addClass("active") //#1
+            }
+
+            // $(".menu>li>a").removeClass("active") //#1
+            // $(this).addClass("active") //#1
+
+            // $(this).parent().find(".submenu").show(); //#2
+
+        })
+    </script>
+
+</body>
+</html>
