@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabMenu_jin_02</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    .wrap { padding: 30px;}
+    .menu{display: flex;}
+    .menu li{
+        background-color: antiquewhite; height: 50px; width: 150px;
+        border: 1px solid #000;
+        display: flex; justify-content: center; align-items: center;
+        font-weight: bold;
+        }
+    .menu>li.active{background-color: aqua;}
+    .content { padding: 20px; background-color: aqua; border: 1px solid #000; width: 700px;}   
+    .content li{display: none;} 
+    .content li:first-child{display: block;}
+</style>
+<body>
+
+
+<div class="wrap">
+    <ul class="menu">
+        <li class="active"><a href="#">Tap 01</a></li>
+        <li><a href="#">Tap 02</a></li>
+        <li><a href="#">Tap 03</a></li>
+    </ul>
+    <div class="content">
+        <ul>
+            <li>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, iste!</li>
+            <li>2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, iste!</li>
+            <li>3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, iste!</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $(".menu>li").click(function(){
+        $(".menu>li").removeClass("active")
+        $(this).addClass("active")
+
+        let i=$(this).index()
+        $(".content li").hide()
+        $(".content li").eq(i).show()
+
+    })
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery03_modal_02</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        html,body{height: 100%;}
+        body{display: flex; justify-content: center; align-items: center;}
+        .layer{width: 500px;display: flex; gap: 10px;}
+        .layer li{flex-grow: 1;}
+        .layer li img{width: 100%;} 
+
+        .glayLayer{
+            position: fixed;
+            /* width: 100%;height: 100%; */
+            left:0; right: 0;top: 0;bottom: 0;
+            background: rgba(0,0,0,.5);
+            display: none; align-items: center; justify-content: center;
+        }
+        .overLayer{position: relative;}
+        .xicon{
+            _position: absolute; right: 0; top: -40px;
+            width: 40px;height: 40px;
+            _background: #fff;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .bg{background-color: aqua; width: 500px;height: 300px;}
+        
+    </style>
+</head>
+<body>
+    <ul class="layer">
+        <li><a href="#" class="modal">웹디자인기능사</a></li>
+
+    </ul>
+    <div class="glayLayer">
+        <div class="overLayer">
+            
+            <div class="bg">웹디자인 기능사 이지롱
+                <button class="xicon"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".modal").click(function(e){
+            e.preventDefault(); // 기능 막음
+            let aModel = $(this).attr("href") //get
+            console.log(aModel)
+            
+            $(".glayLayer").css("display","flex")           
+        })
+        $(".xicon").click(function(){
+            // $(".glayLayer").css("display","none")  
+            $(this).parent().parent().hide()
+        })
+        // $(".glayLayer").click(function(){ 
+        //     $(this).hide()
+        // })
+    </script>
+</body>
+</html>

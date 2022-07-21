@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex02_ui03_menu</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body{background: skyblue;}
+        #header{background: white;position: absolute;width: 100%;}
+        .container{width: 1200px;margin: 0 auto}
+        .hdWrap{display: flex;padding: 16px 0;}
+        .navWrap{width: 700px;margin-left: auto;}
+        .navWrap>ul{display: flex;height: 100%;}
+        .navWrap>ul>li{flex:1 1 auto;height: 100%;position: relative;}
+        .navWrap>ul>li>a{
+            display:flex;height: 100%;
+            justify-content: center;align-items: center;
+        }
+        .bg{width: 100%;height: 250px;background: darkcyan;}
+
+        .submenu{
+            position: absolute;
+            background: white;
+            width: 100%;
+            padding: 30px 10px;
+            text-align: center;
+            display: none;
+        }
+        .submenu li{margin-bottom: 5px;}
+        .submenu li a{display: block;line-height: 40px;}
+
+        /* .navWrap:hover .submenu{display: block;} */
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container hdWrap">
+            <h1><a href="#">LOGO</a></h1>
+            <div class="navWrap">
+                <ul>
+                    <li><a href="#">menu1</a>
+                        <ul class="submenu">
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">menu1</a>
+                        <ul class="submenu">
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">menu1</a>
+                        <ul class="submenu">
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">menu1</a>
+                        <ul class="submenu">
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">menu1</a>
+                        <ul class="submenu">
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                            <li><a href="#">sub01_01</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg"></div>
+        
+    </header>
+    <script>
+        // $(".bg").slideUp()
+        $(".navWrap>ul>li").hover(function(){
+            $(this).find(".submenu").stop().slideDown()
+        },function(){
+            $(this).find(".submenu").stop().slideUp()
+        })
+    </script>
+</body>
+</html>

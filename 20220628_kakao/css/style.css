@@ -34,7 +34,7 @@
   .top-bar {
     height:80px;
     border-bottom:1px solid #454545;
-    background-color:white;
+    background-color:rgb(207, 145, 145);
   }
   
   .menu-1 ul > li > a:hover {
