@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+</head>
+<style>
+    html, body{
+        margin: 0 auto; 
+    }
+    #box{
+        width: 100%; height: 100vh; background-color: red; transition: .3s;
+        position: relative;
+    }
+
+    .toggle{
+        width: 100px; height: 100px;
+        border: 1px solid #000;
+        display: flex; justify-content:center; align-items: center;
+        position: relative; background-color: #fff;
+        position: absolute; right: 20px; top: 20px;
+    }
+    .toggle div{
+        width: 75px; height: 10px; background: #000;
+        border-radius: 5px;
+        position: absolute;
+        transition: .3s;
+    }
+
+    .toggle .bar1{transform: translateY(-25px);}
+    .toggle .bar3{transform: translateY(25px);}
+
+    .toggle.active .bar1{transform: translateY(0) rotate(315deg);}
+    .toggle.active .bar2{opacity: 0;}
+    .toggle.active .bar3{transform: translateY(0) rotate(-315deg);}
+    .toggle.active div{background: pink;}
+
+    #box.active{transform: translateX(-100%);}   
+  
+
+
+</style>
+<body>
+    <div id="box">        
+    </div>
+    <div class="toggle">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <script>
+        document.querySelector('.toggle').addEventListener("click", function(){
+            document.querySelector('.toggle').classList.toggle("active");
+            document.querySelector('#box').classList.toggle("active");
+
+        })
+
+        const toggleElem = document.querySelector(".toggle");
+        const boxElem = document.querySelectector("#box");
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acco01_jin01</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        html,body{height: 100%;}
+        body{display: flex;justify-content: center; align-items: center;}
+        .menuWrip{width: 200px;}
+        .menu>li{border: 1px solid #000; font-weight: bold; margin-top: -1px;}
+        .menu>li>a{
+            display: flex; height: 40px;
+            align-items: center; justify-content:space-between; font-size: 18px;
+            padding: 20px; background: #eee;
+        }
+        .menu>li:hover>a i{transition: .3s;} 
+        .menu>li:hover>a .submenu{
+            transition: .3s;
+        }
+        .menu>li:hover .submenu{display: block }
+        .menu>li:hover i{transform: rotate(180deg);}
+
+        .menu>li .submenu{padding: 10px 20px; display: none;}
+        .menu>li .submenu a{font-size: 14px; line-height: 20px;}
+
+    </style>
+</head>
+<body>
+
+    <div class="menuWrip">
+        <ul class="menu">
+            <li><a href="#">소개 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">H.Point소개</a></li>
+                    <li><a href="#">사용처안내</a></li>
+                    <li><a href="#">가입혜택</a></li>
+                </ul>
+            </li>
+            <li><a href="#">쌓기 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">즐길거리</a></li>
+                    <li><a href="#">전환하기</a></li>
+                    <li><a href="#">충전하기</a></li>
+                </ul>
+            </li>
+            <li><a href="#">쓰기 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">포인트샵</a></li>
+                    <li><a href="#">선물하기</a></li>
+                    <li><a href="#">기부하기</a></li>
+                </ul>
+            </li>
+            <li><a href="#">혜택 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#">쿠폰</a></li>
+                    <li><a href="#">플러스포인트</a></li>
+                    <li><a href="#">제휴카드안내</a></li>
+                </ul>            
+            </li>
+            <li><a href="#">H.매거진 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">사운드핏</a></li>
+                    <li><a href="#">패션</a></li>
+                    <li><a href="#">리빙</a></li>
+                    <li><a href="#">푸드</a></li>
+                </ul> 
+            </li>
+            <li><a href="#">고객지원 <i class="fa-solid fa-sort-up"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">1:1문의</a></li>
+                    <li><a href="#">공지사항</a></li>                 
+                </ul>
+            </li>            
+        </ul>
+    </div>
+
+<script>
+    
+</script>
+</body>
+</html>
