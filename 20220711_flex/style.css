@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.container{overflow: hidden;}
+.card-img{
+    height: 0;
+    background-color: skyblue;
+    padding-bottom: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.card-txt{background: skyblue; padding: 10px; }
+
+.card-img img{width: 0;}
+
+@media screen and (min-width:600px){
+    .cardWrap{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -0.5em;
+        /* justify-content:space-between; */
+    }
+    li.card{
+        width: 50%; padding: 0 0.5em;
+        display: flex; flex-direction: column; padding-bottom: 10px;
+        /* 텍스크기를 자동으로 키우기 grow값에 의해 키워진다. */    
+    }
+    .card-txt{flex-grow: 1;}
+}
+
+@media screen and (min-width:850px){
+    li.card{width: calc( 100% / 3 );}
+}
+
+@media screen and (min-width:1200px){
+    li.card{width: calc( 100% / 4 );}
+    .container{width: 1200px; margin: 0 auto;}
+}
