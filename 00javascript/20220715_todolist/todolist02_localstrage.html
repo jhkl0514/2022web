@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist02_localstrage</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" class="inp">
+    <button class="btn1">오늘 할 일</button>
+    <ul class="listView">
+    </ul>
+    <button class="btn2">전체삭제</button>
+    
+
+    <script>
+        let listData= [];
+
+        //init
+        const inp = document.querySelector(".inp");
+        const btn1 = document.querySelector(".btn1");
+        const btn2 = document.querySelector(".btn2");
+        const listView = document.querySelector(".listView");
+
+
+        btn1.addEventListener("click",function(){
+            let value = inp.value;
+
+            if(value != ""){ // 빈공간이 아니면            
+            listData.push(value);
+            localStorage.setItem(value,value);
+            inp.value = ""; //빈공간
+
+            }else{
+                alert("오늘할일을 입력하세요.")
+            }
+
+            viewData();
+        })
+
+        //화면출력
+        function viewData(){
+                        
+            listData=[];
+
+            for(let i=0;i<localStorage.length;i++){
+                listData.push(localStorage.key(i))
+            }
+
+            let viewList = "" //변수
+            // for(let i=0;i<listData.length;i++){}
+            listData.forEach(function(item,index){ //포이치or포문 사용하면 됨
+                console.log(item,listData[index]);
+                // 문자누적
+                viewList +=  `<li>${item} <span onclick="mydel('${item}',${index})">[del]</span></li>`;
+            })
+            listView.innerHTML = viewList;  
+        }
+
+        
+        viewData();
+
+        //아이템삭제 전체삭제 로컬삭제
+        function mydel(item,index){
+            listData.splice(index,1)
+            localStorage.removeItem(item);
+            viewData();
+        }
+
+        btn2.addEventListener("click",function(){
+            listData = [];
+            localStorage.clear()
+            viewData();
+        })
+        </script>
+</body>
+</html>
