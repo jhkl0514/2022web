@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabMenuImg_jin_01</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    .wrap{margin: 0 auto; width: 600px; }
+    .tab {display: flex; width: 00px; }
+    .tab ul{display: flex; background-color: aliceblue;}
+    .tab li{ 
+        width: 150px; height: 70px;
+        display: flex; justify-content: center;align-items: center;
+        font-size: 18px; font-weight: bold; background-color: #333; color:#fff;
+        border-right: 1px  solid #fff;
+       
+    }
+    .tab li.active{background-color: pink;}
+    
+    .content{width: 600px; overflow: hidden; right: 0; bottom: 0;}
+    .content img{width: 600px;}
+    .content ul{
+        width: 1800px; display: flex;
+        position: relative; 
+    }
+   
+</style>
+<body>
+    <div class="wrap">
+        <div class="tab">
+            <ul>
+                <li class="active">Tap01</li>
+                <li>Tap02</li>
+                <li>Tap03</li>
+            </ul>
+        </div>
+        <div class="content">
+            <ul>
+                <li><img src="../../images/pc01.jpg" alt=""></li>
+                <li><img src="../../images/pc02.jpg" alt=""></li>
+                <li><img src="../../images/pc03.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+<script>
+    $(".tab li").click(function(){
+            let i=$(this).index();
+
+            $(".tab li").removeClass("active");
+            $(this).addClass("active");
+
+            //$(".content ul").css("left",-i*400)
+            $(".content ul").stop().animate({left:-i*600},300)
+            console.log(i)
+    })
+
+</script>
+    
+</body>
+</html>

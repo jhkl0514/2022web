@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide01_basic</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .container{width: 1000px; margin: 0 auto; overflow: hidden; position: relative;}
+        .slide{
+            width: 4000px; display: flex; position: relative; left:0px;
+            /* transition: 0.3s; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+            <div><img src="../../images/images01.jpg" alt="0"></div>
+            <div><img src="../../images/images02.jpg" alt="1"></div>
+            <div><img src="../../images/images03.jpg" alt="2"></div>
+            <div><img src="../../images/images01.jpg" alt="3"></div>
+            
+        </div>
+    </div>
+
+    <script>
+        setInterval(slideNum,1000);
+        let num = 0;
+        function slideNum(){
+            num++;
+            if(num == 4){
+                num = 1;
+                $(".slide").css("left",0) //4번이 되는 순간  left 0으로 가서 1번이 나온다.
+             }
+
+            console.log(num)
+            // $(".slide").css("left",num*-1000)
+            // 순간적으로 움직일때는 애니메이트를 사용해야 한다.
+            $(".slide").stop().animate({left:num*-1000},300) //0.5초로 이동을 다시 한다.
+        }
+    </script>
+
+</body>
+</html>

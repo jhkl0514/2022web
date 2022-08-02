@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event01</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <a 
+    onmouseover="this.style.background='orchid';this.style.color='white'"
+    onmouseout="this.style.backgroundColor ='initial';this.style.color='initial'"
+    >
+    안녕하세요</a>
+
+    <p class="box">만나서반갑습니다.</p>
+    <p class="box1">반갑습니다.</p>
+
+    <script>
+        const p = document.querySelector(".box");
+
+        p.onmouseover = over; // function(){}
+        document.querySelector(".box").onmouseout = out;
+
+        function over(){
+            console.log("mouseover")
+        }
+        function out(){
+            console.log("mouseout")
+        }
+
+
+        const p1 = document.querySelector(".box1");
+        p1.addEventListener("mouseover",function(){ 
+            console.log("mouseover");
+        });
+        p1.addEventListener("mouseout",out)
+
+    </script>
+
+</body>
+</html>

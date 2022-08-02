@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide01_basic_jin01_v2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div id="slide">
+            <div><img src="https://placeimg.com/750/750/any/grayscale" alt=""></div>
+            <div><img src="https://placeimg.com/1000/750/any" alt=""></div>
+            <div><img src="https://placeimg.com/750/800/any/grayscale" alt=""></div>
+            <div><img src="https://placeimg.com/1000/800/any" alt=""></div>
+        </div>
+    </div>
+    
+    <style>
+    .main {
+        width:750px;
+        margin:0 auto;
+    }
+    #slide {
+        position:relative;
+        width:100%;
+        height:750px;
+        overflow:hidden;
+    }
+    #slide > div {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+    </style>
+
+    <script>
+        $('#slide > div:gt(0)').hide(); // opacity 역활
+
+        setInterval(function(){
+        $('#slide > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slide');
+      },3000);
+
+    //   var current=0;
+    //   $(function(){
+    //   ani();
+    //   });
+
+
+    //   function ani() {
+    //         $(".banner > ul").delay(2000).animate({"left":"-=1000px"}, 500, 
+    //            function(){
+    //            current++;
+    //            if(current == 5) {
+    //               current = 0;
+    //               $(this).css({"left":"0px"});
+    //            }
+    //            ani();
+    //         });
+    //      }
+    </script>
+</body>
+</html>
+
+/*
+:fitst
+첫번째로 일치하는 요소를 가져온다.
+
+ :last
+마지막으로 일치하는 요소를 가져온다.
+
+ :even
+짝수번째 요소를 모두 가져온다 ( first index : 0 )
+
+ :odd
+홀수번째 요소를 모두 가져온다 ( first index : 0 )
+
+ :eq(index)
+ 인자로 전달된 index에 해당하는 요소를 가져온다. ( first index : 0 )
+
+ :gt(index)
+인자로 전달된 index 보다 큰 index를 가진 요소를 모두 가져온다.
+
+ :lt(index)
+인자로 전달된 index 보다 작은 index를 가진 요소를 모두 가져온다.
+
+ :has(selector)
+인자로 전달된 selector 요소를 하나 이상 포함하고 있는 요소를 가져온다.
+
+ :not(selector)
+인자로 전달된 selector 와 일치하지 않는 모든요소를 가져온다.
+
+출처: http://javacpro.tistory.com/40 [버물리의 IT공부]
+*/
+
+$('#slide > div:gt(0)').hide();
+
+setInterval(function(){
+    $('#slide > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo('#slide');
+},3000);
+
+/*
+A.append(B)
+B.appendTo(A)
+ -> A의 마지막에 B를 추가
+
+
+A.prepend(B)
+B.prependTo(A)
+ -> A의 처음에 B를 추가
+*/

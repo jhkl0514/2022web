@@ -88,7 +88,7 @@
 
             $(".menu>li>a").parent().find(".submenu").slideUp();//.hide() //#3 .slideUP() , fadeOut()
 
-            if( $(this).hasClass("active")){
+            if( $(this).hasClass("active")){ //hasClass : 클래스 가지고 있어? 없어?
                 $(".menu>li>a").removeClass("active")
             }else{
                 $(this).parent().find(".submenu").slideDown();// .show();//추가.slideDown(), fadeIn()

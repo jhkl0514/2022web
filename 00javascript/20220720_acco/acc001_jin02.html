@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acc001_jin02</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        html,body{height: 100%;}
+        body{display: flex; justify-content: center; align-items: center;}
+        .submenu{display: none;}
+        .menu>li{font-size: 18px; font-weight: bold; border: 1px solid #000;margin-top: -1px;}
+        .menu>li>a{        
+            display: flex; justify-content: center; align-items: center;
+            padding: 20px 40px;background: #eee;
+        }
+        .menu>li.hover .submenu{
+            display: block;
+        }
+
+        .submenu{padding: 10px 20px; }
+        .submenu li a{font-size: 14px; text-align: center; line-height: 20px;}
+    </style>
+</head>
+<body>
+    
+    <div>
+        <ul class="menu">
+            <li><a href="#">menu01</a>
+                <ul class="submenu">
+                    <li><a href="#">sub01_01</a></li>
+                    <li><a href="#">sub01_01</a></li>
+                    <li><a href="#">sub01_01</a></li>
+                    <li><a href="#">sub01_01</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu02</a>
+                <ul class="submenu">
+                    <li><a href="#">sub02_01</a></li>
+                    <li><a href="#">sub02_01</a></li>
+                    <li><a href="#">sub02_01</a></li>
+                    <li><a href="#">sub02_01</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu03</a>
+                <ul class="submenu">
+                    <li><a href="#">sub03_01</a></li>
+                    <li><a href="#">sub03_01</a></li>
+                    <li><a href="#">sub03_01</a></li>
+                    <li><a href="#">sub03_01</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // $(".menu li").hover(function(){
+        //     $(this).addClass("hover");
+        // },function(){
+        //     $(this).removeClass("hover")
+   
+        // })
+
+        $(".menu>li>a").click(function(e){
+            e.preventDefault(); 
+
+            $(".menu>li>a").parent().find(".submenu").slideUp();
+
+            if( $(this).hasClass("active")){
+                $(".menu>li>a").removeClass("active")
+                
+            }else{
+                $(this).parent().find(".submenu").slideDown();
+                $(".menu>li>a").removeClass("active");
+                $(this).addClass("active");
+
+            }
+        })
+
+
+    </script>
+
+
+</body>
+</html>

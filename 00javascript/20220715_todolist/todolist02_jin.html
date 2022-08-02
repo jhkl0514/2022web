@@ -70,7 +70,67 @@
         viewData();
     })
 
+
+
+
+///설명//
+
+
+let listData = [];
+
+// init
+const inp = document.querySelector(".inp");
+const btn = document.querySelector(".btn");
+const listView = document.querySelector(".listView")
+const dbtn = document.querySelector(".dbtn");
+
+// event
+// #1. click inp입력 > localStorage setItem > 입력후 inp 공백으로 만들어줌 
+btn.addEventListener("click",function(){
+    let value = inp.value;
+    if(value != ""){
+        listData.push(value);
+        localStorage.setItem(value,value);
+        inp.value = "";
+    }else{
+        alert("오늘의 할 일을 입력하세요.")
+    }
+    viewData();
+});
+//#2. localStorage 에 inp.value 저장 
+function viewData(){
+    listData = [];
+    for (let i=0;i<localStorage.length;i++){
+        listData.push(localStorage.key(i));
+    }
+    // inp 입력시 listData에 li생성 (항목별del) 추가 
+    let viewList="";
+    listData.forEach(function(item,index){
+        viewList += `<li> ${item}<span class="del" onclick ="myDel('${item}',${index})"><b>del</b></span></li>`
+    })
+    listView.innerHTML = viewList;
+}
+viewData();
+//#3. 항목별 del 클릭시 listData 삭제 & localStorage 삭제 
+function myDel(item,index){
+    listData.splice(index,1);
+    localStorage.removeItem(item);
+    viewData();
+}
+//전체 삭제 
+dbtn.addEventListener("click",function(){
+    listData = [];
+    localStorage.clear();
+    viewData();
+})
+
+
+
+
+
 </script>
 
 </body>
 </html>
+
+
