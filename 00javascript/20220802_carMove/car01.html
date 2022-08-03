@@ -17,31 +17,30 @@
             border: 1px solid #000;
             position: relative;
         }
-        .btnWrap{ 
-            width: 600px; display: flex; 
-            padding: 10px 0;     
+        .btnWrap{
+            _background-color: blue;
+            width: 600px;display: flex;
+            padding: 10px 0;
         }
-        .btnWrap button{width: 50px; height: 30px; }
-        .btn1{margin-left: auto; margin-right: 5px;}
+        .btn1{margin-left: auto;margin-right: 5px;}
 
         .bar{
             width: 500px;height: 10px;background: red;
-            position: absolute;
-            left: 50px; top: 190px;
+            position: absolute;left:50px;top: 190px;
         }
         .car{
-            position: absolute;  left: 50px; top: 120px; 
+            position: absolute; left:50px;top: 120px;
         }
         .car.rotate{transform: rotateY(180deg);}
     </style>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="panel">
-        <div class="car"><img src="../../images/car.png" alt=""></div>        
-        <div class="bar rotate"> 
+        <div class="bar"></div>
+        <div class="car">
+            <img src="../../images/car.png" alt="">
         </div>
     </div>
     <div class="btnWrap">
@@ -49,66 +48,46 @@
         <button class="btn2">stop</button>
     </div>
     <script>
-        // let current = 50; //star 위치
-        // let move = 10; // 시간마다 2Px씩 이동
+
+        // let current = 50; //star location
+        // let move = 10; // 2px move
 
         // setInterval(function(){
-        //     current += move; //current = current + move;
+        //     current += move;
         //     $(".car").css("left",current)
         // },300)
 
-
-            //init 초기값
-            const nStart = $(".car").position().left; //50
-            const nEnd = nStart + $(".bar").width() - $(".car").width() // 50 + (500 - 120)
-            let nStep = 2;
-            let current = nStart; //현재의 위치에서 시작
-            let timeId;
-            const start = timeId;
+        // init 
+        const nStart = $(".car").position().left; // 50
+        const nEnd = nStart + $(".bar").width() - $(".car").width() // 50 + ( 500 - 120 ) 
+        let nStep = 2;
+        let current = nStart;
+        let timeId;
 
 
+        
+        // event
+        timeId = setInterval(carMove,30);
 
-            // event
-            timeId = setInterval(carMove,30);
+        
+        // function
+        function carMove(){
+            current += nStep;
 
-            // function 함수
-            function carMove(){
-                current += nStep;
-
-                if( current > nEnd ){
-                    nStep = -nStep;
-                    $(".car").addClass("rotate")
-                }
-                if( current < nStart){
-                    nStep = -nStep;
-                    $(".car").removeClass("rotate")
-                }
-                
-
-                $(".car").css("left",current)
+            if( current > nEnd ){
+               nStep = -nStep;
+               $(".car").addClass("rotate");
             }
-            $(".btn2").on("click",function(){
-            clearInterval(timeId);
-        })   
-        $(".btn1").on("click",function(){
-             setInterval (carMove,30);
-    
+            if( current < nStart){
+                nStep = -nStep;
+                $(".car").removeClass("rotate");
+            }
 
-        })
+            $(".car").css("left",current);
 
-        
+        }
 
 
-        
-        
-       
-        
-        $(".btn1").on("click",function(){
-            timeId = setInterval (carMove,30);
-        })
-
-
-        
     </script>
 </body>
 </html>
