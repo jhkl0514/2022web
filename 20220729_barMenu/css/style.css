@@ -34,6 +34,7 @@ h1{text-align: center;margin-bottom: 10px;}
 }
 
 
+
 .bar{
     position: absolute;
     width: calc( 100% / 5 );
@@ -49,7 +50,16 @@ h1{text-align: center;margin-bottom: 10px;}
     align-items: center;
 }
 
-/* subpage */
+.contents{display: flex;}
+.contents li{flex:1 1 25%}
+.contents li:nth-child(2n){background: skyblue;}
+.contents li a{
+    display: flex;
+    padding: 30px;justify-content: center;
+}
+
+
+/* subpage  */
 .subVisual{
     height: 200px;
     display: flex;justify-content: center;
@@ -57,45 +67,28 @@ h1{text-align: center;margin-bottom: 10px;}
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    
 }
+.subVisual h2{color:white;text-shadow: 0 0 10px rgba(0, 0, 0, 1);}
+
 
 .subVisual.company{background-image: url(../../images/pc01.jpg);}
 .subVisual.product{background-image: url(../../images/pc02.jpg);}
-.subVisual.menu03{background-image: url(../../images/pc03.jpg);}
-.subVisual.menu04{background-image: url(../../images/pc01.jpg);}
-.subVisual.menu05{background-image: url(../../images/pc02.jpg);}
-.subVisual h2{color: white; text-shadow: 0 0 10px rgba(0,  0, 0, 1);}
 
 
-
-
-
-
-
-
-
-
-
-
-
-/********** css responsive  **********/
-@media (max-width: 1399px) {
-
+.sub .tab{display: flex;}
+.sub .tab li{
+    flex:1 1 25%;height: 40px;
+    display: flex;justify-content: center;align-items: center;
+    background: lightgray;
+    cursor: pointer;
 }
-
-@media (max-width: 1199px) {
-
+.sub .tab li.active{
+    background: skyblue;
 }
-
-@media (max-width: 991px) {
-
+.sub .content div{
+    display: none;
+    border: 1px solid #000;
+    padding: 30px;
+    border-top: 0 none;
 }
-
-@media (max-width: 767px) {
-
-}
-
-@media (max-width: 575px) {
-
-}
+.sub .content div:nth-child(1){display: block;}

@@ -24,7 +24,7 @@ function nowMenu(menu){
             $(".bar").css({left:menu*240,opacity:1}); // mouseout 시 원위치로 이동
         });
     }
-s
+
 }
 
 
