@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist03_obj</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <ul class="listView">
+
+    </ul>
+<script>  
+   
+
+    let listData = [
+        '오늘의 할 일1',
+        '오늘의 할 일2',
+        '오늘의 할 일3',
+        '오늘의 할 일4',
+        '오늘의 할 일5',      
+        ] // item들 (doto, i라고 해도 됨)
+
+        let objDate = {eng:100,kor:90}
+
+        const listView = document.querySelector(".listView"); //dom을 가져온다.
+
+    function view(){
+        
+
+        let viewList="" 
+       
+        // for(let i=0;i<listData.length;i++){
+        //     console.log(listData[i]);
+        //     // viewList = viewList + "<li>" + (listData[i]) + "<li>";
+        //         viewList += `<li>${listData[i]}</li>`
+        // }
+
+        listData.forEach(function(item,i){ //i는 인덱스
+            console.log("1 방법 : " + listData[i])
+
+        })
+
+        for(let item of listData){ //array, string....
+            console.log("2 방법 : " + item)
+        }
+
+        // for(let key in listData){ //object {key:value} [value, value]
+        //     console.log("3 방법 : " + listData[index])
+        // }
+
+        for(let key in listData){ //object {key:value} [value, value]
+            console.log("3 방법 : " + objDate[key])
+        }
+
+
+
+
+        listView.innerHTML = viewList;
+
+    }
+    view();
+
+    
+
+</script>  
+</body>
+</html>
