@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu_obj_jin</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <ul class="menu">
+        
+    </ul>
+    
+    <script>
+        const menuData = [
+            {menu:"company",href:"/company/company.html",sub:null},
+            {menu:"product",href:"/product/product.html",
+             sub:[
+                {smenu:"pro01",href:"/product/pro01.html"},
+                {smenu:"pro02",href:"/product/pro02.html"}
+            ]},
+            {menu:"community",href:"/community/community.html",
+             sub:[
+                {smenu:"com01",href:"/product/com01.html"},
+                {smenu:"com02",href:"/product/com02.html"}
+            ]},
+            {menu:"board",href:"/community/community.html",
+             sub:[
+                {smenu:"cboard1",href:"/product/board01.html"},
+                {smenu:"board02",href:"/product/board02.html"}
+            ]},          
+        ]
+
+        let menuLi = document.querySelector(".menu");
+        let listView ='';
+
+        menuData.forEach(function(item,index){
+            // console.log(item.menu)
+
+            
+
+        })
+
+        
+        menuLi.innerHTML = listView;
+
+    </script>
+
+
+</body>
+</html>

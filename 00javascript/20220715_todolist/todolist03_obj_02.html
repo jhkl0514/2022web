@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist03_obj</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .mytodo{width: 400px;margin: 10px auto; display: flex; height: 50px; gap:5px}
+        .mytodo .inp{flex-grow: 1;}
+        .mytodo .btn1{width: 100px;}
+        .mytodo .btn2{width: 100px; display: none;}
+        .listView{width: 400px;margin: 0 auto;}
+        .listView li{height: 40px;position: relative; margin-bottom: 3px; border-bottom: 1px solid #000;}
+        .listView li .item{height: 100%; display: flex; align-items: center; padding-left: 10px;}
+        .listView li .item.active{background: skyblue;}
+        .listView li .iconWrap{position: absolute;right: 5px;top: 0;background: pink; display: flex;}
+        .listView li .iconWrap i{width: 30px;height: 30px; display: flex; justify-content: center; align-items: center; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="mytodo">
+        <input type="hidden" class="num"> <!-- 빈공간에 저장하기위해 -->
+        <input type="text" class="inp" value="">
+        <button class="btn1">오늘의 할일</button>
+        <button class="btn2">수정</button>
+
+    </div>
+    <ul class="listView">
+
+    </ul>
+    
+<script>  
+  
+
+    let listData = [ ] 
+
+        const listView = document.querySelector(".listView"); //dom을 가져온다.
+        const btn1 = document.querySelector(".btn1");
+        const btn2 = document.querySelector(".btn2");
+        const inp = document.querySelector(".inp");
+        const num = document.querySelector(".num");
+
+        btn1.addEventListener("click",function(){
+            // console.log(inp.value);
+            let value = {"todo":inp.value,"done":false} // value
+            console.log(value);
+
+            listData.push(value);
+            view();
+
+            inp.value = "" //value 값 없애는거
+            
+        })
+
+        btn2.addEventListener("click",function(){
+            listData[num.value].todo = inp.value; //수정 inp value 넣는다.
+            btn1.style.display = "block";
+            btn2.style.display = "none";
+            inp.value ="";
+            view()
+        }) // 수정됨
+
+    function view(){   
+        let viewList="" 
+ 
+
+        listData.forEach(function(item,i){ //i는 인덱스   
+             // viewList +=`<li>${item.todo}</li>`    
+            viewList += `<li>`;
+
+            if( listData[i].done == true){
+                viewList += `<div class="item active"  onclick="done(${i})">${listData[i].todo}</div>`
+            }else{
+                viewList += `<div class="item"  onclick="done(${i})">${listData[i].todo}</div>`
+            }
+                               
+            viewList +=  `<div class="iconWrap">
+                                <i class="fa-solid fa-trash" onclick="del(${i})"></i>
+                                <i class="fa-solid fa-disease" onclick="mod(${i},'${listData[i].todo}')"></i>`// 몇번째 데이터를 함수로 받아서("" ''문자로 받기 위해)
+                                
+            if(listData[i].done == true) {
+              
+                viewList += `<i class="fa-solid fa-circle-check" onclick="done(${i})"></i>`; 
+            }else{
+                viewList += `<i class="fa-solid fa-power-off" onclick="done(${i})"></i>`; 
+            }                     
+            viewList +=   `</div>
+                        </li>`
+        })
+
+        listView.innerHTML = viewList;
+    }
+    view();
+
+    function done(idx){
+        console.log(idx);
+        listData[idx].done = !listData[idx].done;
+        view();
+    }
+
+    function del(idx){       
+        listData.splice(idx,1); //인덱스의 몇번째를 삭제 splice (배열 메소드)
+        view();
+    }
+
+    function mod(idx,todo){       
+       console.log(idx,todo)
+       inp.value = todo; //inp에 넣어라 문자
+       num.value = idx;  // 넘버를 넣어라
+       btn1.style.display = "none";
+       btn2.style.display = "block";       
+    }
+
+    
+
+</script>
+
+</body>
+</html>
