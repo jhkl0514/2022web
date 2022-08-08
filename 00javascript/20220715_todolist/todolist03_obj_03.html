@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist03_obj</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .btn2{display: none;}
+  
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="inp">
+        <input type="hidden" class="num">       
+        <button class="btn1">오늘의 할일</button>
+        <button class="btn2">수정</button>
+    </div>
+    <ul class="viewData">
+       
+
+    </ul>
+        
+<script>  
+
+    let listData = [
+        // {
+        //     todo:"오늘할일 1",
+        //     done:false,
+        // },
+        // {
+        //     todo:"오늘할일 2",
+        //     done:false,
+        // },
+        // {
+        //     todo:"오늘할일 3",
+        //     done:true,
+        // },
+
+     ];
+
+    
+     const viewData = document.querySelector(".viewData");
+     const inp = document.querySelector(".inp");
+     const num = document.querySelector(".num");
+     const btn1 = document.querySelector(".btn1");
+     const btn2 = document.querySelector(".btn2");
+
+
+     btn1.addEventListener("click",function(){    
+        
+        let value = {"todo":inp.value,"done":false}
+        console.log(value)
+
+        listData.push(value) 
+        view();
+    })
+
+    btn2.addEventListener("click",function(){
+
+        listData[num.value].todo = inp.value;
+        btn1.style.display = "block";
+        btn2.style.display = "none";
+        inp.value = "";
+        view()
+
+    })
+
+     function view(){
+
+        let viewList="" 
+        //  for(let i=0;i<listData.length;i++){
+        //     console.log(listData[i]);
+        //     viewList += `<li>${listData[i]["todo"]}</li>`
+        //     }
+
+        listData.forEach(function(item,i){
+            // console.log(listData);
+            // viewList += `<li>${item.todo}</li>`
+
+            
+            viewList += `<li>
+                ${item.todo}
+                <i class="fa-solid fa-trash" onclick="del(${i})"></i> 
+                <i class="fa-solid fa-disease" onclick="mod(${i},'${item.todo}')"></i>   
+                <i class="fa-solid fa-power-off" onclick="done(${i})"></i>            
+                </li>`;
+               
+
+               
+        })
+
+        viewData.innerHTML = viewList;
+    } 
+
+     view();
+
+     function del(idx){       
+        listData.splice(idx,1);
+        view();
+     }
+
+     function mod(idx,todomy){
+        console.log(idx,todomy)
+        inp.value = todomy;
+        num.value = idx;
+        btn1.style.display = "none";
+        btn2.style.display = "block"
+
+     }
+
+   
+
+        
+
+</script>
+
+</body>
+</html>
