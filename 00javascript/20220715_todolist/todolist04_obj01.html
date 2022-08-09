@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist03_obj02</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .viewData{width: 400px;margin: 0 auto}
+        .viewData li{
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: 2px;
+            cursor: pointer;
+        }
+        .viewData li .txt{padding: 0 16px;border-radius: 10px;}
+        .viewData li .txt.active{background: skyblue;}
+        .viewData .iconWrap{
+            display: flex;position: absolute;
+            gap:5px;right: 10px;top: 5px;
+        }
+        .viewData .iconWrap a{
+            width: 30px;height: 30px;
+            background: #000;
+            color:white;border-radius: 50%;
+            display: flex;justify-content: center;
+            align-items: center;
+            line-height: 30px;
+        }
+
+        .inpWrap{width: 400px;margin: 10px auto;display: flex;gap:5px}
+        .inpWrap input[type="text"]{flex-grow: 1;text-indent: 10px;}
+        .inpWrap .btn1{width:100px;height: 40px;}
+    </style>
+</head>
+<body>
+
+    <div class="inpWrap">
+        <input type="text" class="inp">
+        <button class="btn1">오늘의 할일</button>
+    </div>
+
+    <ul class="viewData">
+        
+        
+    </ul>
+    <script>
+        let listData = [
+           
+        ];
+
+        const viewData = document.querySelector(".viewData");
+        const inp = document.querySelector(".inp");
+        const btn1 = document.querySelector(".btn1");
+        
+
+        btn1.addEventListener("click",function(){
+            if(inp.value !=""){//빈공간이 아니면
+
+                let value = {"todo":inp.value, "done":false}; //key value 오브젝트로 넣어야 함
+                listData.push(value); //푸시하고
+
+
+                let valueData =JSON.stringify(listData); //문자화 한다.
+                localStorage.setItem("todoData",valueData);  
+
+                // value = JSON.stringify(listData)  //제이슨화 한다음에
+                // localStorage.setItem("todoData",value) //todoData로 해서 value로 넣겠다
+
+
+                view(); //view로 보여줌 (없던것이 나오는 것임)
+                inp.value =""; //글씨 사라짐 빈공간 생기지 않게 if
+
+            }else{
+                alert("오늘의 할일을 입력하세요.") //빈공간이면 창 띄우기
+                inp.focus(); //인풋창에 깜박깝박거림
+            }
+        })
+
+        view();
+
+        function view(){
+            if(localStorage.length > 0){   // 
+                let localData = localStorage.getItem("todoData"); //todoData 키 값을 가져온다
+                listData = JSON.parse(localData) //번역해서 넣는다
+            }  
+
+
+            todoData = '';
+            listData.forEach(function(item,i){
+                // console.log(item.todo)
+                console.log(listData[i]["todo"]);
+                todoData += `<li>`
+                if( item.done == true){
+                    todoData += `    <div class="txt active" onclick="done(${i})">${listData[i]["todo"]}</div>`
+                }else{
+                    todoData += `    <div class="txt" onclick="done(${i})">${listData[i]["todo"]}</div>`
+                }
+
+                todoData += `    <div class="iconWrap">`
+                todoData += `        <a href="#" onclick="del(${i})">D</a>`
+                todoData += `        <a href="#" onclick="">M</a>`
+
+                if( item.done == true){  
+                    todoData += `        <a href="#" onclick="done(${i})">Ca</a>`
+                }else{
+                    todoData += `        <a href="#" onclick="done(${i})">Do</a>`
+                }
+
+                todoData += `    </div>`
+                todoData += `</li>`
+            });
+            viewData.innerHTML = todoData;
+
+        }
+
+        function del(idx){
+            listData.splice(idx,1);
+            
+            let valueData =JSON.stringify(listData);
+            localStorage.setItem("todoData",valueData); 
+
+            view()
+
+        }
+
+        function done(idx){ //변경 업데이트
+            listData[idx].done = !listData[idx].done; // 돈을 누르면 트루가 반대편인 펄스가 됨
+
+            let valueData =JSON.stringify(listData);
+            localStorage.setItem("todoData",valueData);
+
+            view()
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
