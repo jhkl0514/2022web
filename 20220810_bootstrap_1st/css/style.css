@@ -24,3 +24,15 @@
     box-shadow: var(--shadow-color1);
     transform: scale(1.05) translate(-5px, -5px);
 }
+
+
+.navbar-toggler{border: 0 none}
+
+.cont-4st .owl-theme .owl-nav [class*=owl-]:hover{background:initial;color:red}
+.cont-4st .owl-nav {font-size: 40px;}
+.cont-4st .owl-nav .owl-prev{position: absolute;left: -80px;top: 50%;transform: translateY(-70%);}
+.cont-4st .owl-nav .owl-next{position: absolute;right: -80px;top: 50%;transform: translateY(-70%);}
+
+
+.cont-4st .owl-item{padding:20px;_background: red;transition:0.3s;opacity:0.3;}
+.cont-4st .owl-item.center{padding:0px;_background: red;opacity: 1;}
