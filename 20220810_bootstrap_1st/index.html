@@ -32,7 +32,10 @@
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- isotope / owl carousel 은 jquery 밑에 있어야 한다. -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/style.css" class="css">
+    <script src="js/jquery.magnific-popup.min.js"></script>
+
 
     <style>
         .a {
@@ -57,7 +60,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0 me-3">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">COMPANY</a>
+                        <a class="nav-link link-dark" href="#">COMPANY</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">PRODUCT</a>
@@ -98,7 +101,7 @@
         </div>
     </div>
 
-    <div class="container py-5 cont-1st">
+    <div class="container py-5 cont-1st  lazy-load">
         <h2 class="text-center">gallery</h2>
         <p class="text-center mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, similique!</p>
         <div class="row">
@@ -152,7 +155,7 @@
         </div>
     </div>
 
-    <div class="container py-5 cont-2st">
+    <div class="container py-5 cont-2st lazy-load">
         <h2>PORTFOLIO</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, laborum.</p>
         <div class="btn-group mb-5">
@@ -164,13 +167,17 @@
             <div class="btn btn-primary" data-filter=".photo">PHOTOSHOP</div>
             <div class="btn btn-primary" data-filter=".illust">ILLUSTRATOR</div>
         </div>
-        <div class="row view">
+        <div class="row view popup-gallery">
             <!-- .col-6.col-lg-3  / element-item 꽂아야 한다.-->
             <div class="col-6 col-lg-3 element-item web mb-3">
-                <img src="images/servicos/1.jpg" alt="" class="img-fluid rounded">
+                <a href="images/servicos/1.jpg" class="vPopup">
+                    <img src="images/servicos/1.jpg" alt="" class="img-fluid rounded">
+                </a>
             </div>
             <div class="col-6 col-lg-3 element-item photo mb-3">
-                <img src="images/servicos/2.jpg" alt="" class="img-fluid rounded">
+                <a href="" class="vPopup">
+                    <img src="images/servicos/2.jpg" alt="" class="img-fluid rounded">
+                </a>
             </div>
             <div class="col-6 col-lg-3 element-item web mb-3">
                 <img src="images/servicos/3.jpg" alt="" class="img-fluid rounded">
@@ -198,7 +205,7 @@
 
     </div>
 
-    <div class="bg-gray cont-3st py-5">
+    <div class="bg-gray cont-3st py-5 lazy-load" >
         <div class="container">
             <h2 class="text-center mb-3">CUstomer</h2>
             <p class="text-center mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, ipsam.</p>
@@ -217,7 +224,7 @@
         </div>
     </div>
 
-    <div class="container py-5 cont-4st">
+    <div class="container py-5 cont-4st lazy-load">
         <div class="owl-carousel owl-theme nonloop " id="oslide2">
             <img src="images/servicos/1.jpg" alt="" class="rounded">
             <img src="images/servicos/1.jpg" alt="" class="rounded">

@@ -36,3 +36,8 @@
 
 .cont-4st .owl-item{padding:20px;_background: red;transition:0.3s;opacity:0.3;}
 .cont-4st .owl-item.center{padding:0px;_background: red;opacity: 1;}
+
+.lazy-load{transform: translateY(300px); transition: 0.5s; opacity: 0;}
+.lazy-load.fade{
+    transform: translateY(0); opacity: 1;
+}

@@ -41,3 +41,26 @@ $("#oslide2").owlCarousel({
     }
 })
 
+$(".view .vPopup").magnificPopup({
+    type:"image",
+    gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    },
+})
+
+console.log(window.innerHeight); //this = window (this.scrollY) innerHeight: 보이는 화면길이를 만나면 올라온다 )
+const lazyLoad = document.querySelectorAll(".lazy-load"); //배열로 객체로 사용.
+window.addEventListener("scroll",function(){
+    lazyLoad.forEach(function(item){ //item lazLoadu = []
+        // console.log(item);
+        const rect = item.getBoundingClientRect().top;
+        console.log(rect);
+        if(rect <= window.innerHeight){
+            item.classList.add("fade")
+        }
+    })
+   
+})
+
