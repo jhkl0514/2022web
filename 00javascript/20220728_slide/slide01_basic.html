@@ -28,7 +28,7 @@
     </div>
 
     <script>
-        setInterval(slideNum,1000);
+        setInterval(slideNum,3000);
         let num = 0;
         function slideNum(){
             num++;
@@ -40,8 +40,9 @@
             console.log(num)
             // $(".slide").css("left",num*-1000)
             // 순간적으로 움직일때는 애니메이트를 사용해야 한다.
-            $(".slide").stop().animate({left:num*-1000},300) //0.5초로 이동을 다시 한다.
+            $(".slide").stop().animate({left:num*-1000},500) //0.5초로 이동을 다시 한다.
         }
+        
     </script>
 
 </body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event06_focus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        input.focus{
+            outline-style: solid;
+            outline-color: red;
+            outline-width: 4px;
+        }
+    </style>
+
+</head>
+<!-- <body onload="document.getElementById('name').focus()"> //로드 되자마자 깜박깜박 거림 -->
+<body>  
+    <form>
+        <label for="name">이름</label>
+        <!-- <input type="text"  id="name" onblur="checkFilled(this)"><br> -->
+        <label for="hack">학번</label>
+        <input type="text" id="heck"><br>
+
+        지역 <span class="location">선택</span><br>
+        <input type="radio" name="zone" value="서울" id="z1st" checked><label for="z1st">서울</label>
+        <input type="radio" name="zone" value="부산">부산
+        <input type="radio" name="zone" value="대구">대구
+        <!-- <button class="selZone" >선택</button> -->
+        <input type="button" value="선택" class="selZone">
+
+    </form>
+
+<script>
+    // window.onload=function(){
+    // document.body.onload=function(){
+        // document.getElementById("name").focus()
+    // }
+
+    // function checkFilled(obj){
+    //     if(obj.value == ""){
+    //         // alert("이름을 입력하세요!")
+    //         obj.focus()
+    //     }
+    // }
+
+    let loc = document.querySelector(".location");
+    let kcity = document.getElementsByName("zone");
+    let selZone = document.querySelector(".selZone");
+
+    selZone.onclick = function(){
+        for(let i=0;i<kcity.lenght;i++)
+            if(kcity[i].checked == true){
+                loc.innerHTML = kcity[i].value
+            }
+    }
+   
+</script>
+</body>
+</html>
