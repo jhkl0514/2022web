@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" integrity="sha512-rCjfoab9CVKOH/w/T6GbBxnAH5Azhy4+q1EXW5XEURefHbIkRbQ++ZR+GBClo3/d3q583X/gO4FKmOFuhkKrdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <style>
     .wrapper{ width: 500px; margin: 0 auto; background: pink;  }
@@ -34,7 +35,9 @@
             let nextCurrent = 0;
             const liNum = $(".slide>li").length;
             let overBtn = true;
-            const sItem = $('.slide>li')
+            const sItem = $('.slide>li');
+            const pager = $('.pager>span');
+
 
             $('.next').click(function(){
                 if(overBtn == true){ // 이중클릭 방지
@@ -55,6 +58,8 @@
             })
 
             function slider(view){
+                pager.removeClass('active').eq(nextCurrent).addClass('active');
+
                 if(view == "next"){
                    sItem.eq(current).css({left:0}).stop().animate({left:"-100%"},500)
                    sItem.eq(nextCurrent).css({left:"100%"}).stop().animate({left:0},500,function(){overBtn=true}) //콜백함수
@@ -64,6 +69,23 @@
                 }               
                 current = nextCurrent;
             }
+            pager.click(function(){
+                nextCurrent = $(this).index();
+                slider("next")
+            })
+
+            // setInterval(function(){
+            //     $(".next").trigger("click")
+            // },3000)
+
+            $('.wrapper').mousewheel(function(e){
+                console.log(e.deltaY);
+                if(e.deltaY < 0){
+                    $('.next').trigger('click')
+                }else{
+                    $('.prev').trigger('click')
+                }
+            })
 
 
         });            
