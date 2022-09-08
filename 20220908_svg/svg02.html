@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg02</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    .line01{
+        fill:none;
+        stroke:#262626;
+        stroke-width: 4;       
+        stroke-dasharray: 13075;
+        stroke-dashoffset: 13075;
+        animation: sAni 10s forwards alternate linear;
+    }
+    @keyframes sAni{
+        100%{stroke-dashoffset: 0;}
+    }
+
+    .line02{
+        opacity: 0;
+        animation:sAni1 10.5s  forwards alternate linear;
+    }
+    @keyframes sAni1{   
+        0%{opacity: 0;}
+        20%{opacity: 0;}   
+        50%{opacity: 0;}   
+        90%{opacity: 0;}     
+        100%{opacity: 1;}
+    }
+
+</style>
+<body>
+
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" style="enable-background:new 0 0 1000 600" xml:space="preserve">
+            <path class="line01" d="M8.55 90.31h368.73v144H838.5v14.97H369.44V100.29H20.13V510.9H40.8V118.11h311.53v142.57H838.5v16.4H340.21V131.65H60.05v362.14h17.82V148.05h246.65v142.57H838.5v24.24H311.69V163.73H98.54v310.81h19.96V185.12h173.95V333.4H838.5v16.39H279.61V200.8H141.32v258.06h17.82V217.91h105.5v148.28H838.5v19.96H253.24V231.46h-76.28v205.3h16.4V251.42h44.91v148.27H976.4"/>
+            <path class="line02" style="fill:#262626" d="m966.46 411.96-2.05-2.19 10.84-10.07-10.84-10.08 2.05-2.19 13.19 12.27z"/>
+        </svg>
+    </div>
+</body>
+</html>
