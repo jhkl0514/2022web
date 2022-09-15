@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg03</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* body{
+            background-image: url(img/sun.svg);
+            background-position:center;
+            background-size: 10%;
+        } */
+        *{
+            margin: 0;padding: 0;
+        }
+        .box1,.box2{
+            width: 300px;height: 300px;
+            background: skyblue;
+        }
+        .box3{
+            width: 300px;height: 100px;
+            background: pink;
+        }
+       
+        .cir1{
+            fill:#ffba2a;
+            stroke:#000;
+            stroke-dasharray: 373;
+            stroke-dashoffset: 373;
+            animation: cAni 1s alternate forwards;
+            animation-delay:1s;
+            opacity: 0;
+        }
+        .outer{
+            fill:#3a9400;
+            stroke:#000;
+            stroke-dasharray: 914;
+            stroke-dashoffset: 914;
+            animation: oAni 1s alternate forwards;
+            opacity: 0;
+        }
+        @keyframes oAni{
+            100%{
+                opacity: 1;
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes cAni{
+            100%{    
+                opacity: 1;         
+                stroke-dashoffset: 0;
+            }
+        }
+        .box2.active .st0{animation: sLine 1s alternate forwards;}
+        .st0{
+            stroke-dasharray: 318;
+            stroke-dashoffset: 318;
+            
+        }
+        @keyframes sLine{
+            100%{
+                stroke-dashoffset:0 ;
+            }
+        }
+
+        .box2.active .l-1{animation-delay: 0s;}
+        .box2.active .l-2{animation-delay: 0.3s;}
+        .box2.active .l-3{animation-delay: 0.6s;}
+        .box2.active .l-4{animation-delay: 0.9s;}
+        .box2.active .l-5{animation-delay: 1.2s;}
+        .box2.active .l-6{animation-delay: 1.5s;}
+        .box2.active .l-7{animation-delay: 1.8s;}
+        .box2.active .l-8{animation-delay: 2.1s;}
+        .box2.active .l-9{animation-delay: 2.4s;}
+        .box2.active .l-10{animation-delay: 2.7s;}
+        .box2.active .l-11{animation-delay: 3.0s;}
+        .box2.active .l-12{animation-delay: 3.3s;}
+    </style>
+</head>
+<body>
+    <!-- <img src="img/sun.svg" alt=""> -->
+    <div class="box1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300" xml:space="preserve">
+            <path class="outer" d="M172.31 64.47C164.46 46.81 149.5 34.5 149.5 34.5s-15.13 12.45-22.95 30.27c-15.63-11.36-34.74-14.55-34.74-14.55s-6.88 18.35-4.74 37.69c-19.21-2.03-37.36 4.77-37.36 4.77s3.22 19.33 14.74 35.01C46.81 135.54 34.5 150.5 34.5 150.5s12.45 15.13 30.27 22.95c-11.36 15.63-14.55 34.74-14.55 34.74s18.35 6.88 37.69 4.74c-2.03 19.21 4.77 37.36 4.77 37.36s19.33-3.22 35.01-14.74c7.85 17.65 22.81 29.97 22.81 29.97s15.13-12.45 22.95-30.27c15.63 11.36 34.74 14.55 34.74 14.55s6.88-18.35 4.74-37.69c19.21 2.03 37.36-4.77 37.36-4.77s-3.22-19.33-14.74-35.01c17.65-7.85 29.97-22.81 29.97-22.81s-12.45-15.13-30.27-22.95c11.36-15.63 14.55-34.74 14.55-34.74s-18.35-6.88-37.69-4.74c2.03-19.21-4.77-37.36-4.77-37.36s-19.3 3.73-34.82 14.78" />
+            <circle class="cir1" cx="150" cy="150" r="59.5">  
+        </svg>
+    </div>
+    <button class="bClick">나오기</button>
+    <button class="nView">없애기</button>
+
+    <div class="box2">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300" xml:space="preserve">
+            <style>
+              .st0{fill:none;stroke:#000;stroke-miterlimit:10}
+            </style>
+            <path class="st0 l-1" d="M23.5 58.5s16 66 106 92c0 0 114 24 123 105"/>
+            <path class="st0 l-2" d="M31.95 54.68s22.36 64.27 104.55 96.45c0 0 103.64 29.18 113.64 105.18"/>
+            <path class="st0 l-3" d="M40.41 50.86s28.73 62.55 103.09 100.91c0 0 93.27 34.36 104.27 105.36"/>
+            <path class="st0 l-4" d="M48.86 47.05s35.09 60.82 101.64 105.36c0 0 82.91 39.55 94.91 105.55"/>
+            <path class="st0 l-5" d="M57.32 43.23s41.45 59.09 100.18 109.82c0 0 72.55 44.73 85.55 105.73"/>
+            <path class="st0 l-6" d="M65.77 39.41s47.82 57.36 98.73 114.27c0 0 62.18 49.91 76.18 105.91"/>
+            <path class="st0 l-7" d="M74.23 35.59s54.18 55.64 97.27 118.73c0 0 51.82 55.09 66.82 106.09"/>
+            <path class="st0 l-8" d="M82.68 31.77s60.55 53.91 95.82 123.18c0 0 41.45 60.27 57.45 106.27"/>
+            <path class="st0 l-9" d="M91.14 27.95s66.91 52.18 94.36 127.64c0 0 31.09 65.45 48.09 106.45"/>
+            <path class="st0 l-10" d="M99.59 24.14s73.27 50.45 92.91 132.09c0 0 20.73 70.64 38.73 106.64"/>
+            <path class="st0 l-11" d="M108.05 20.32s79.64 48.73 91.45 136.55c0 0 10.36 75.82 29.36 106.82"/>
+            <path class="st0 l-12" d="M116.5 16.5s86 47 90 141c0 0 0 81 20 107"/>
+          </svg>
+    </div>
+
+<script>
+    const bBtn = document.querySelector(".bClick");    
+    const nBtn = document.querySelector(".nView");
+    const box2 = document.querySelector(".box2");
+    bBtn.onclick = function(){
+        box2.classList.add("active")
+    }
+    nBtn.onclick = function(){
+        box2.classList.remove("active")
+    }
+</script>
+
+<style>
+    .box3{
+        transition: 0.3s;
+        transform: scale(0.5);
+    }
+    .box3:hover{
+        transform: scale(1);
+    }
+    .box3:hover .tSvg{animation: tAni1 5s infinite forwards linear;}
+    .box3:hover .tSvg1{animation:tAnil 1s alternate forwards}
+    .tSvg{
+        fill:none;
+        stroke:#000;
+        stroke-width: 2;
+        stroke-dasharray: 1085;
+        stroke-dashoffset: 1085;
+        /* animation: tAni1 5s infinite forwards linear; */
+    }
+    @keyframes tAni1{
+        100%{
+            stroke-dashoffset: 0;
+        }
+    }
+    .tSvg1{
+        fill:#3a9400;
+        opacity: 0;
+        stroke-width: 0;
+        /* animation:tAnil 1s alternate forwards */
+    }
+    @keyframes tAnil{
+        100%{opacity: 1;}
+    }
+
+</style>
+<div class="box3">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" style="enable-background:new 0 0 300 100" xml:space="preserve">
+        <path class="tSvg1" d="M67.41 63.99c-2.59 2.42-5.88 3.63-9.86 3.63-3.36 0-6.24-1.13-8.63-3.39-2.39-2.26-3.63-5.3-3.73-9.12h9.49c.13 1.62.49 2.83 1.06 3.63.58.81 1.28 1.21 2.1 1.21.86 0 1.63-.54 2.32-1.63s1.04-2.93 1.04-5.54V24.46h10.09v28.68c0 4.81-1.3 8.43-3.88 10.85zM81.03 24.46h10.04v39.36c0 1.02-.4 1.85-1.19 2.5s-1.71.96-2.77.96h-6.08V24.46zM124.49 67.28l-12.56-22.3c-.07-.16-.18-.55-.35-1.16-.17-.61-.3-1-.4-1.16.03.23.08.68.15 1.36.07.68.1 1.11.1 1.31v18.49c0 1.02-.4 1.85-1.19 2.5-.79.64-1.71.96-2.77.96h-6.08V24.46h9.05l12.31 21.81c.13.2.28.59.45 1.16.16.58.31 1 .44 1.26 0-.26-.03-.69-.1-1.29-.07-.59-.1-1.01-.1-1.24v-21.7h10.09v39.36c0 1.02-.4 1.85-1.19 2.5-.79.64-1.71.96-2.77.96h-5.08zM164.49 67.28v-18.2h-10.63v14.73c0 1.02-.4 1.85-1.19 2.5s-1.71.96-2.77.96h-6.08V24.46h10.04v16.96h10.63V24.46h10.04v39.36c0 1.02-.4 1.85-1.19 2.5s-1.71.96-2.77.96h-6.08zM194.89 32.18v9.59h15.33v5.09c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-12.46v9.99h17.95v4.3c0 1.12-.3 1.97-.89 2.55-.59.58-1.45.87-2.57.87h-21.06c-1.12 0-1.98-.29-2.57-.87-.59-.58-.89-1.43-.89-2.55V24.46h27.99v4.99c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-15.09zM231.53 32.18v9.59h15.33v5.09c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-12.46v9.99h17.95v4.3c0 1.12-.3 1.97-.89 2.55-.59.58-1.45.87-2.57.87h-21.06c-1.12 0-1.98-.29-2.57-.87-.59-.58-.89-1.43-.89-2.55V24.46h27.99v4.99c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-15.09z"/>
+        <path class="tSvg" d="M67.41 63.99c-2.59 2.42-5.88 3.63-9.86 3.63-3.36 0-6.24-1.13-8.63-3.39-2.39-2.26-3.63-5.3-3.73-9.12h9.49c.13 1.62.49 2.83 1.06 3.63.58.81 1.28 1.21 2.1 1.21.86 0 1.63-.54 2.32-1.63s1.04-2.93 1.04-5.54V24.46h10.09v28.68c0 4.81-1.3 8.43-3.88 10.85zM81.03 24.46h10.04v39.36c0 1.02-.4 1.85-1.19 2.5s-1.71.96-2.77.96h-6.08V24.46zM124.49 67.28l-12.56-22.3c-.07-.16-.18-.55-.35-1.16-.17-.61-.3-1-.4-1.16.03.23.08.68.15 1.36.07.68.1 1.11.1 1.31v18.49c0 1.02-.4 1.85-1.19 2.5-.79.64-1.71.96-2.77.96h-6.08V24.46h9.05l12.31 21.81c.13.2.28.59.45 1.16.16.58.31 1 .44 1.26 0-.26-.03-.69-.1-1.29-.07-.59-.1-1.01-.1-1.24v-21.7h10.09v39.36c0 1.02-.4 1.85-1.19 2.5-.79.64-1.71.96-2.77.96h-5.08zM164.49 67.28v-18.2h-10.63v14.73c0 1.02-.4 1.85-1.19 2.5s-1.71.96-2.77.96h-6.08V24.46h10.04v16.96h10.63V24.46h10.04v39.36c0 1.02-.4 1.85-1.19 2.5s-1.71.96-2.77.96h-6.08zM194.89 32.18v9.59h15.33v5.09c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-12.46v9.99h17.95v4.3c0 1.12-.3 1.97-.89 2.55-.59.58-1.45.87-2.57.87h-21.06c-1.12 0-1.98-.29-2.57-.87-.59-.58-.89-1.43-.89-2.55V24.46h27.99v4.99c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-15.09zM231.53 32.18v9.59h15.33v5.09c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-12.46v9.99h17.95v4.3c0 1.12-.3 1.97-.89 2.55-.59.58-1.45.87-2.57.87h-21.06c-1.12 0-1.98-.29-2.57-.87-.59-.58-.89-1.43-.89-2.55V24.46h27.99v4.99c0 .96-.24 1.65-.72 2.08-.48.43-1.2.64-2.15.64h-15.09z"/>
+      </svg>
+</div>
+
+
+</body>
+</html>
