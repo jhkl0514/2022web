@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax07_kakao</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- https://cdnjs.com/libraries/axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,li{list-style: none;}
+        a:link,a:visited{text-decoration:none; color: #333;}
+        .wrap{width: 80%; margin: 0 auto; padding: 20px;}
+        .search{
+            display: flex;
+            gap:10px;
+        }
+        .search .inp-search{
+            flex: 1 0 auto;
+            padding: 10px;
+            border-radius: 30px;
+        }
+        .search .btnIcon{
+            width: 30px;height: 30px;
+            background: white;
+            color: #000;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="inp-search" placeholder="search">
+            <div class="btnIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+        <br><br><br>
+
+        <ul class="list">
+            
+        </ul>
+    </div>
+
+<script>
+   function wSearch(loc){
+    axios
+        .get(
+            "https://dapi.kakao.com/v2/search/web?query="+ loc +"&size=10",
+            {
+                headers:{ Authorization: 'KakaoAK f06425d88365c753dab010371c5b4d21' }
+            }
+        )
+        .then(onResult)
+        .catch(onError);
+    }
+
+    function onResult(v){
+        console.log(v.data.documents);        
+
+        let list = ""     
+        for(let i=0; i<v.data.documents.length; i++){
+            list += ` <li>                       
+                        <a href="${v.data.documents[i].url}"><h3>${v.data.documents[i].title}</h3>
+                            <br>
+                        <p>${v.data.documents[i].contents}</p></a>   
+                        <br><hr><br> <br>                    
+                    </li>`
+        }
+        $(".list").html(list);
+    }
+
+    function onError(xhr,status,error){
+        console.log("error");
+        alert("검색하세요!")
+    }
+
+    $(".btnIcon").click(function(){
+        let value = $(".inp-search").val();
+
+        if(value == ""){
+            alert("검색하세요.")
+        }else{
+            wSearch(value)
+            $(".inp-search").val("").focus();
+        }
+    })
+
+    $(".search").keyup(function(e){
+        if(e.key == "Enter"){
+            console.log("enter ok");
+            let value = $(".inp-search").val();
+
+            if(value == ""){
+                alert("검색하세요.")
+            }else{
+                wSearch(value)
+                $(".inp-search").val("").focus();
+            }
+        }
+    })
+
+
+
+</script>
+</body>
+</html>
