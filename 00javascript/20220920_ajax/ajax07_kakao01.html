@@ -25,6 +25,9 @@
         .search .inp-search{flex:1 0 auto; padding: 10px;font-size: 1.3em; border-radius: 30px; text-indent: 20px;}
         .search .btnIcon{width: 45px;height: 45px;background: pink; color: #333;
             display: flex;justify-content: center;align-items: center; border-radius: 50%; align-self: center;}
+        .paging {text-align: center; display: flex; font-size: 2em; cursor: pointer;}
+        .paging a{text-align: center; padding: 10px; }
+        .paging a.active{background: skyblue;  border-radius: 5px;}
        
     </style>
 </head>
@@ -38,7 +41,20 @@
             <input type="text" class="inp-search" placeholder="검색어를 입력하세요.">
             <div class="btnIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
         </div>
-        <br><br><br>
+        <br><br>
+        <div class="paging">
+            <div class="prev"><</div>
+                <div class="pageWrap">
+
+                </div>
+            <div class="next">></div>    
+            <!-- <a href="#" onclick="onPageClick(1)">1</a>
+            <a href="#" onclick="onPageClick(2)">2</a>
+            <a href="#" onclick="onPageClick(3)">3</a>
+            <a href="#" onclick="onPageClick(4)">4</a>
+            <a href="#" onclick="onPageClick(5)">5</a> -->
+        </div>
+        <br>
         <ul class="list">
             <!-- <li>
                 <h3><a href="#">타이틀</a></h3>
@@ -46,11 +62,7 @@
                 <p class="data">2022/09/22</p>
             </li>-->
         </ul>
-        <div class="pageing">
-            <a href="#" onclick="sView('이효리',1)">1</a>
-            <a href="#" onclick="sView('이효리',2)">2</a>
-            <a href="#" onclick="sView('이효리',3)">3</a>
-        </div>
+        
     </div>
 
 <script>
@@ -59,12 +71,13 @@
     //         {
     //             headers:{ Authorization: 'KakaoAK f06425d88365c753dab010371c5b4d21' }
     //         }
-    let page=1;
-    let query;
+    let page=1; //50page
+    let size=5; //출력갯수
+    let query = "뉴스";
     let kakaoUrl = 'https://dapi.kakao.com/v2/search/web'
 
 
-    sView("이효리")
+    sView("뉴스")
     function sView(query){
         axios
         .get(getPath(),getParmas(query))
@@ -75,23 +88,25 @@
     function getPath(){
         return kakaoUrl
     }
-    function getParmas(query){
+    function getParmas(query,page){
         return{
-            params:{ query:query,size:10, page:page, sort:"recency" },
+            params:{ query:query,size:10, size:size, page:page, sort:"recency" },
             headers:{ Authorization: 'KakaoAK f06425d88365c753dab010371c5b4d21' }
         }
     }
 
 
     function onResult(v){
-        // console.log(v);       
-        console.log(v.data.documents);
+        console.log(v.data.meta.pageable_count);//토탈카운트로해서 page 수를 만들어야함     
+        
+        setPager(v.data.meta.pageable_count);//paging 함수
+
         let sData = v.data.documents;
 
         let sList = ""
         sData.forEach(function(item,i){
              // console.log(sData[i].title)
-            console.log(item.data)
+            //console.log(item.data)
             sList += `<li>
                         <h3><a href="${item.url}">${item.title}</a></h3>
                         <p class="contents">${item.contents}</p>
@@ -140,6 +155,61 @@
     //         }
     //     }
     // })
+
+    function onPageClick(page){
+        axios
+        .get(getPath(),getParmas(query,page))
+        .then(onResult)
+        .catch(onError);
+    }
+
+    function setPager(totalRecord){ //total페이지수 구하기
+        page = Number(page);
+        console.log(totalRecord);
+        let totalPage = Math.ceil(totalRecord / size);
+
+        // if(page > totalPage){page=totalPage};
+
+        let pagerCnt = 10; //한 화면에 보여줄 페이지개수 1 2 3 4 5
+        let startPage; //첫페이지
+        let endPage; //마지막페이지
+
+        startPage = Math.floor((page - 1) / pagerCnt) * pagerCnt + 1;
+        endPage = startPage + pagerCnt - 1;
+
+        let pageNum = "";
+        for(let i=startPage; i<=endPage; i++){
+            if(page == i){            
+                 pageNum += `<a href="#" onClick="onPageClick(${i})" class="active">${i}</a>`
+            }else{
+                pageNum += `<a href="#" onClick="onPageClick(${i})">${i}</a>`
+            }
+        }
+        
+        if(totalPage === 0){
+            $(".pageWrap").empty().html("자료가 없음");
+        }else{
+            $(".pageWrap").html(pageNum);
+        }
+        
+        
+    }
+    $(".next").click(function(){
+        page = page + 1;
+        if(page > 50){page=50}
+        axios
+        .get(getPath(),getParmas(query,page))
+        .then(onResult)
+        .catch(onError);
+    })
+    $(".prev").click(function(){
+        page = page - 1;
+        if(page === 0){page = 1}
+        axios
+        .get(getPath(),getParmas(query,page))
+        .then(onResult)
+        .catch(onError);
+    })
 
 
 </script>

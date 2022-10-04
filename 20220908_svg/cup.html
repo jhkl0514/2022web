@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cup</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .wrap {
+            width: 400px;
+        }
+
+        .water1 {
+            fill: #3ddaf4;
+            animation: wAni1 3s alternate forwards linear;
+        }
+        .water2 {
+            fill: #527981;
+            animation: wAni2 3s alternate forwards linear;           
+           
+            
+        }
+
+        @keyframes wAni1 {
+            0%{transform: translate(-30px,85px) scaleY(0.5);}
+            20%{transform: translate(0px,15px) scaleY(1);}
+            100%{transform: translate(80px,50px) scaleY(0.4);}
+            
+        }
+        @keyframes wAni2 {
+            0%{transform: translate(40px,90px) scaleY(0.5);}
+            20%{transform: translate(20px,10px) scaleY(1);fill: #527981;}
+            100%{transform: translate(-60px,50px) scaleY(0.4);fill: #3ddaf4;}
+            
+        }
+
+
+        .cupmask{ 
+            fill:#eee;
+            /* stroke: #000; */
+        }
+
+        .st1,.st2,.st3,.st4 {
+            fill: #fff;
+            stroke: #000;
+            stroke-miterlimit: 10
+        }
+
+        .st2,.st3,.st4 {
+            fill: none
+        }
+
+        .st3,.st4 {
+            stroke-width: 1.0488
+        }
+
+        .st4 {
+            fill: #fff;
+            stroke-width: 1.3002
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 300 300"
+            style="enable-background:new 0 0 300 300" xml:space="preserve">
+            <defs>
+                <mask id="cup">
+                    <path class="cupmask" d="M93.5 46c.2 39.8 25.4 110 56.5 110s56.3-70.2 56.5-110h-113z" />    
+                </mask>
+            </defs>
+            
+            <path class="st1" d="M93.5 46c.2 39.8 25.4 110 56.5 110s56.3-70.2 56.5-110h-113z" />
+            <path class="st2" d="M150 156.5v89" />
+            <ellipse class="st3" cx="149.5" cy="245.5" rx="45" ry="11" />
+            <ellipse class="st4" cx="150" cy="45" rx="56.5" ry="13.5" />
+            <g mask="url(#cup)">
+                <path class="water2" d="M284.4 73.5c-13.6 0-13.6 8.5-27.2 8.5s-13.6-8.5-27.2-8.5-13.6 8.5-27.2 8.5-13.6-8.5-27.2-8.5S162 82 148.4 82s-13.6-8.5-27.2-8.5S107.6 82 94 82s-13.6-8.5-27.2-8.5S53.2 82 39.6 82 26 73.5 12.4 73.5V265h273l-1-191.5z"/>
+                <path class="water1" d="M284.4 73.5c-13.6 0-13.6 8.5-27.2 8.5s-13.6-8.5-27.2-8.5-13.6 8.5-27.2 8.5-13.6-8.5-27.2-8.5S162 82 148.4 82s-13.6-8.5-27.2-8.5S107.6 82 94 82s-13.6-8.5-27.2-8.5S53.2 82 39.6 82 26 73.5 12.4 73.5V265h273l-1-191.5z"/>
+            </g> 
+        </svg>
+
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 200 300" style="enable-background:new 0 0 200 300" xml:space="preserve">
+            <style>
+              .cst0{fill:#f2f2f2}.cst1{fill:#828282}.cst2{fill:#fff}
+            </style>
+            <defs>
+                <mask id="cup_a">
+                    <path class="cst0" d="M167.9 133.09c9.95-7.54 22.33-16.92 21.7-28.48-.91-16.94-5.21-33.04-7.13-39.51l-59.28 1.44c-1.62 6.56-5.18 22.85-5.32 39.82-.09 11.58 12.7 20.35 22.98 27.4 1 .69 1.97 1.35 2.89 1.99 6.51 4.53 15.07 4.32 21.36-.52.9-.7 1.84-1.41 2.8-2.14z" />    
+                </mask>
+            </defs>
+            <!-- <path class="cst0" d="M167.9 133.09c9.95-7.54 22.33-16.92 21.7-28.48-.91-16.94-5.21-33.04-7.13-39.51l-59.28 1.44c-1.62 6.56-5.18 22.85-5.32 39.82-.09 11.58 12.7 20.35 22.98 27.4 1 .69 1.97 1.35 2.89 1.99 6.51 4.53 15.07 4.32 21.36-.52.9-.7 1.84-1.41 2.8-2.14z"/> -->
+            <path class="cst1" d="M195.62 222.96s0-.01 0 0c0-.11-.01-.21-.02-.32a.807.807 0 0 0-.4-.63c-5.12-2.9-23.1-8.69-30.69-11.88-2.24-.94-3.94-1.65-4.72-1.97a.814.814 0 0 1-.49-.73l-.65-28.48-.03-1.13c-.28-12.1-.53-23.36-.62-27.24-.22-9.7 37.84-23.06 36.58-46.42-1.14-21.13-7.18-40.72-8.32-44.26a.78.78 0 0 0-.76-.55l-66.12 1.61c-.35.01-.64.25-.74.59-.98 3.59-6.12 23.45-6.29 44.61-.19 23.39 38.44 34.89 38.66 44.59.09 3.88.35 15.14.62 27.24l.03 1.13.65 28.48c.01.32-.17.62-.46.76-.77.36-2.44 1.15-4.63 2.2-7.43 3.55-25.13 10.21-30.11 13.36-.22.14-.37.38-.37.65v.32c.01.44.38.78.8.77l77.32-1.88c.42-.02.77-.38.76-.82zm-52.41-86.61c-.95-.66-1.94-1.34-2.97-2.05-10.55-7.23-23.67-16.23-23.58-28.11.14-17.41 3.8-34.12 5.46-40.85l60.82-1.48c1.97 6.64 6.38 23.16 7.32 40.54.64 11.86-12.06 21.49-22.27 29.22-.99.75-1.95 1.48-2.87 2.19-6.45 4.98-15.23 5.19-21.91.54z"/>
+            <path class="cst2" d="M189.74 98.14c0 .04.01.08.01.12l-.62-.01c.21-.03.41-.07.61-.11z"/>
+            
+            <g mask="url(#cup_a)">
+                <path class="cst3" d="M187.6 95.54c-5.03 3.77-10.23 7.67-20.52 7.67s-15.49-3.9-20.52-7.67c-5.03-3.77-9.79-7.34-19.51-7.34-9.72 0-14.48 3.56-19.51 7.34-5.03 3.77-10.23 7.67-20.52 7.67s-15.49-3.9-20.52-7.67c-5.03-3.77-9.79-7.34-19.51-7.34-9.73 0-14.48 3.56-19.51 7.34-5.03 3.77-10.23 7.67-20.52 7.67s-15.49-3.9-20.52-7.67c-5.03-3.77-9.79-7.34-19.51-7.34-.67 0-1.31.02-1.93.05V199.1h236V88.76c-5.86 1.14-9.55 3.89-13.4 6.78z"/>
+                <path class="cst4" d="M189.72 96.29c-4.29 3.77-8.72 7.67-17.49 7.67-8.77 0-13.2-3.9-17.49-7.67-4.29-3.77-8.34-7.34-16.63-7.34s-12.34 3.56-16.63 7.34c-4.29 3.77-8.72 7.67-17.49 7.67-8.77 0-13.2-3.9-17.49-7.67-4.29-3.77-8.34-7.34-16.63-7.34s-12.34 3.56-16.63 7.34c-4.29 3.77-8.72 7.67-17.49 7.67s-13.2-3.9-17.49-7.67c-4.29-3.77-8.34-7.34-16.63-7.34-.57 0-1.11.02-1.65.05v110.85h201.14V89.51c-4.98 1.14-8.13 3.9-11.4 6.78z"/>
+            </g>
+          </svg>
+
+          <style>
+          
+    
+            .cst3 {
+                fill:#d7651f;
+                animation: wcAni1 3.5s alternate forwards linear infinite;
+            }
+            .cst4 {
+                fill:#d7371f;
+                animation: wcAni2 4s alternate forwards linear infinite;
+                animation-delay: 0.3s;  
+            }
+    
+            @keyframes wcAni1 { 
+                100%{transform: translate(0px,0px) scaleY(0.9);}
+                
+            }
+            @keyframes wcAni2 {
+                100%{transform: translate(100px,10px) scaleY(0.8);}
+                
+            }                        
+    
+        </style>
+
+          
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <div id="app">
+        {{message}}
+        <!-- {{message[0]}} -->
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+        <!-- <VUE CDM> -->
+        <!-- <script src="data.js"></script> -->
+        <!-- type에 모듈이란걸 넣어야 import 된다  내보는걸 해야 한다. -->
+    <script type="module">
+            import {noticeData, newsData, snsData}  from "./data.js";        
+            // console.log(noticeData, newsData, snsData);
+
+            const { createApp } = Vue;
+            // createApp 함수를 app에 넣는다.
+            createApp({
+                data() {
+                    return {
+                        message: 'Hello Vue!'
+                        // message: noticeData,
+                    }
+                }
+            }).mount("#app"); 
+            
+    </script>
+    
+</body>
+
+</html>
